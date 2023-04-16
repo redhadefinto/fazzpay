@@ -42,14 +42,13 @@ function Login() {
         <section className="w-[50%] pl-12 py-12 hidden lg:auth-bg lg:block">
           <p className="text-3xl font-bold pl-12 text-white-primary">FazzPay</p>
           <Image src={branding} width={500} height={500} alt="branding" />
-          <p className="pl-12 font-bold text-2xl mb-8 text-white-primary text-start">
+          <p className="pl-4 xl:pl-12 font-bold text-2xl mb-8 text-white-primary text-start">
             App that Covering Banking Needs.
           </p>
-          <p className="pl-12 text-white-secondary">
+          <p className="pl-4 xl:pl-12 xl:pr-4 text-white-secondary">
             FazzPay is an application that focussing in banking needs for all
-            users <br /> in the world. Always updated and always following world
-            trends. <br /> 5000+ users registere d in FazzPay everyday with
-            worldwide <br />
+            users in the world. Always updated and always following world
+            trends. 5000+ users registere d in FazzPay everyday with worldwide
             users coverage.
           </p>
         </section>
@@ -107,7 +106,7 @@ function Login() {
                 placeholder="Enter your password"
               />
               <i
-                className={`right-2 text-blue-primary absolute text-2xl top-[10%] lg:hidden ${
+                className={`right-2 text-blue-primary absolute lg:right-[12%] text-2xl top-[10%] ${
                   iconEye ? "bi bi-eye-fill" : "bi bi-eye-slash-fill"
                 }`}
                 onClick={toggleIcon}></i>

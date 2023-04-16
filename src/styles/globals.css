@@ -2,10 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.side-bar {
+  transition: all 0.3s linear;
+  transition-duration: 500ms;
+}
+
 @layer components {
   .auth-bg {
     background-image: url(../assets/background/background-auth.svg);
     background-size: cover;
     background-position: center;
+  }
+  .hero-home {
+    background-image: url(../assets/background/bgHomeee.webp);
+    background-size: cover;
+    background-position: center;
+  }
+  .shadow-box {
+    box-shadow: 0px 4px 20px 0px #0000000d;
   }
 }
