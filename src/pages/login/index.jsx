@@ -4,10 +4,11 @@ import branding from "../../assets/background/handphone.svg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authAction } from "../../redux/slices/auth";
 import { useRouter } from "next/router";
 import Loaders from "@/components/Loaders";
+import { profileAction } from "@/redux/slices/profile";
 
 function Login() {
   const controller = useMemo(() => new AbortController(), []);
@@ -46,9 +47,15 @@ function Login() {
           return toast.error("Wrong password"), setPassword("");
         }
         if (result.payload) {
+          dispatch(
+            profileAction.getProfileThunk({
+              id: result.payload.data.id,
+              token: result.payload.data.token,
+              controller,
+            })
+          );
           toast.success("Success Login");
           const pin = result.payload.data.pin;
-          console.log(pin);
           setTimeout(() => {
             if (pin === null) {
               return router.replace("/pin");

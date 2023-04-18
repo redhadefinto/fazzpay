@@ -1,6 +1,5 @@
+import { getUserProfile } from "@/utils/https/users";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
-import { login } from "../../utils/https/auth";
 
 const initialState = {
   data: [],
@@ -10,11 +9,11 @@ const initialState = {
   err: null,
 };
 
-const getAuthThunk = createAsyncThunk(
-  "auth/post",
-  async ({ email, password }, controller) => {
+const getProfileThunk = createAsyncThunk(
+  "profile/get",
+  async ({ id, token, controller }) => {
     try {
-      const response = await login(email, password, controller);
+      const response = await getUserProfile(id, token, controller);
       return response.data;
     } catch (err) {
       return err;
@@ -22,17 +21,20 @@ const getAuthThunk = createAsyncThunk(
   }
 );
 
-const authSlice = createSlice({
-  name: "auth",
+const profileSlice = createSlice({
+  name: "profile",
   initialState,
   reducers: {
-    filter: () => {
-      return initialState;
+    filter: (prevState) => {
+      return {
+        ...prevState,
+        data: [],
+      };
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getAuthThunk.pending, (prevState) => {
+      .addCase(getProfileThunk.pending, (prevState) => {
         return {
           ...prevState,
           isLoading: true,
@@ -41,7 +43,8 @@ const authSlice = createSlice({
           err: null,
         };
       })
-      .addCase(getAuthThunk.fulfilled, (prevState, action) => {
+      .addCase(getProfileThunk.fulfilled, (prevState, action) => {
+        // console.log(action)
         return {
           ...prevState,
           isLoading: false,
@@ -49,7 +52,7 @@ const authSlice = createSlice({
           data: action.payload,
         };
       })
-      .addCase(getAuthThunk.rejected, (prevState, action) => {
+      .addCase(getProfileThunk.rejected, (prevState, action) => {
         return {
           ...prevState,
           isLoading: false,
@@ -60,8 +63,8 @@ const authSlice = createSlice({
   },
 });
 
-export const authAction = {
-  ...authSlice.actions,
-  getAuthThunk,
+export const profileAction = {
+  ...profileSlice.actions,
+  getProfileThunk,
 };
-export default authSlice.reducer;
+export default profileSlice.reducer;

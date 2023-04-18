@@ -132,8 +132,8 @@ body {
   }
 }
 
-.reactCodeInput > input::-webkit-outer-spin-button,
-.reactCodeInput > input::-webkit-inner-spin-button {
+.arrow[type="number"]::-webkit-outer-spin-button,
+.arrow[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
