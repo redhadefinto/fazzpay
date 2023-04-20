@@ -2,15 +2,16 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
-function SideBar({ setTopUp, maxCustom }) {
+function SideBar({ setTopUp, maxCustom, maxDashboard, maxSucces }) {
   // const [topUp, setTopUp] = useState();
   const router = useRouter();
   const transferRegex = /^\/transfer(\/.*)?$/;
   return (
     <section
       className={`hidden w-[30%] h-[95vh] lg:h-[105vh] xl:h-[95vh] lg:flex ${
-        maxCustom && "lg:h-[155vh] xl:h-[155.1vh]"
-      }`}>
+        maxCustom && "lg:h-[155vh] xl:h-[135.1vh]"
+      } ${maxDashboard && "xl:h-[115vh]"}
+      ${maxSucces && "lg:h-[155vh] xl:h-[155.1vh]"}`}>
       <div
         className={`w-[85%] h-full bg-white relative py-12 flex rounded-xl flex-col gap-12`}>
         <Link

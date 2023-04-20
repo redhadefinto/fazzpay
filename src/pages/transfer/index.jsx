@@ -49,7 +49,8 @@ function Transfer() {
         setLoading(false);
       });
   }, [router.query.search, page]);
-  console.log(paginations);
+  // console.log(paginations);
+  // console.log(datas);
   return (
     <>
       <SideBarMobile setTopUp={setTopUp} />
@@ -81,6 +82,13 @@ function Transfer() {
               </div>
             ) : (
               <div className="flex flex-col gap-6 mt-8">
+                {datas.length <= 0 && (
+                  <div className="mt-12 mb-12 text-center">
+                    <p className="font-bold text-3xl text-red-600">
+                      Contacts not found
+                    </p>
+                  </div>
+                )}
                 {datas.map((data) => {
                   return (
                     <TransferCard
