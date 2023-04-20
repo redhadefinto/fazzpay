@@ -15,14 +15,23 @@ import { getDashBoard } from "@/utils/https/users";
 import { useDispatch, useSelector } from "react-redux";
 import Loaders from "@/components/Loaders";
 import { profileAction } from "@/redux/slices/profile";
-
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Legend,
+} from "chart.js";
 function Home() {
+  ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
   const [topUp, setTopUp] = useState();
   const dispatch = useDispatch();
   const controller = useMemo(() => new AbortController(), []);
   const [chart, setChart] = useState([]);
   const [loading, setLoading] = useState();
-  const [topUpSucces, setTopUpSucces] = useState(false);
+  const [topUpSucces, setTopUpSucces] = useState(1);
   const router = useRouter();
   const token = useSelector((state) => state.auth.data.data.token);
   const id = useSelector((state) => state.auth.data.data.id);
@@ -70,11 +79,7 @@ function Home() {
       <main
         className={`bg-white-secondary min-h-screen flex px-[8%] lg:py-8 lg:px-[5%] xl:px-[8%]`}>
         {/* Side Bar */}
-        <SideBar
-          setTopUp={setTopUp}
-          topUpSucces={topUpSucces}
-          setTopUpSucces={setTopUpSucces}
-        />
+        <SideBar setTopUp={setTopUp} />
         <section className="w-full lg:w-[70%] mt-8 lg:mt-0">
           {/* Info Card */}
           <InfoCard setTopUp={setTopUp} />
@@ -117,7 +122,6 @@ function Home() {
             </div>
           </section>
         </section>
-        <div></div>
       </main>
       <FooterHome />
     </>

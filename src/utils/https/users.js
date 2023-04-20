@@ -30,3 +30,23 @@ export const topUp = (body, token, controller) => {
     },
   });
 };
+
+export const getContact = (page, search, token, controller) => {
+  const url = `${baseUrl}/user?page=${page}&limit=10&search=${search}`;
+  return axios.get(url, {
+    signal: controller.signal,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const cekPin = (getPin, token, controller) => {
+  const url = `${baseUrl}/user/pin/${getPin}`;
+  return axios.get(url, {
+    signal: controller.signal,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

@@ -45,7 +45,7 @@ function Pin() {
       });
   };
   const style = {
-    className: "reactCodeInput",
+    className: "reactCodeInput arrow",
     inputStyle: {
       fontFamily: "Nunito Sans",
       marginLeft: "7.5px",
@@ -137,6 +137,7 @@ function Pin() {
               <div className="">
                 <ReactCodeInput
                   type="number"
+                  inputMode="numeric"
                   fields={6}
                   pattern="/^-?\d+\.?\d*$/"
                   value={getPin}

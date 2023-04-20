@@ -8,7 +8,7 @@ import Loaders from "@/components/Loaders";
 import { useRouter } from "next/router";
 import { resetPassword } from "../../utils/https/auth";
 
-function Register() {
+function ResetPassword() {
   const controller = useMemo(() => new AbortController(), []);
   const [iconEye, setIconEye] = useState(false);
   const [iconEye_, setIconEye_] = useState(false);
@@ -186,4 +186,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default ResetPassword;

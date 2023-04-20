@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 function SideBarMobile({ setTopUp }) {
   const [sidebar, setSideBar] = useState(false);
+  const transferRegex = /^\/transfer(\/.*)?$/;
   const router = useRouter();
   const toggleSidebar = (e) => {
     e.preventDefault();
@@ -43,7 +44,7 @@ function SideBarMobile({ setTopUp }) {
         <Link
           href={"/transfer"}
           className={`flex pl-[15%] gap-4 text-2xl hover:border-l-4 hover:border-solid hover:border-blue-primary hover:text-blue-primary hover:font-semibold ${
-            router.pathname === "/transfer"
+            transferRegex.test(router.pathname)
               ? "border-l-4 border-solid border-blue-600 text-blue-primary font-semibold"
               : "text-grey-secondary font-medium"
           }`}>

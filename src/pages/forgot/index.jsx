@@ -7,7 +7,7 @@ import Link from "next/link";
 import Loaders from "@/components/Loaders";
 import { forgot } from "@/utils/https/auth";
 
-function Login() {
+function Forgot() {
   const controller = useMemo(() => new AbortController(), []);
   const [loading, setLoading] = useState();
   const [input, setInput] = useState(true);
@@ -124,4 +124,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Forgot;

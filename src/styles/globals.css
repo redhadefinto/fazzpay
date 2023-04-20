@@ -153,3 +153,53 @@ body {
     box-shadow: 0px 4px 20px 0px #0000000d;
   }
 }
+
+/* paginasi */
+.paginasi {
+  --color: #6379f4;
+  font-family: inherit;
+  display: inline-block;
+  width: 8em;
+  height: 2.6em;
+  line-height: 2.5em;
+  /* margin: 20px; */
+  position: relative;
+  overflow: hidden;
+  /* border: 2px solid #6379f4; */
+  transition: color 0.5s;
+  z-index: 1;
+  font-size: 17px;
+  border-radius: 6px;
+  font-weight: 700;
+  /* color: #6379f4; */
+}
+
+.paginasi:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  /* background: #6379f4; */
+  height: 150px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+.paginasi:hover {
+  /* color: #fff; */
+}
+
+.paginasi:before {
+  top: 100%;
+  left: 100%;
+  transition: all 0.7s;
+}
+
+.paginasi:hover:before {
+  top: -30px;
+  left: -30px;
+}
+
+.paginasi:active:before {
+  /* background: #6379f4; */
+  transition: background 0s;
+}

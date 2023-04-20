@@ -2,11 +2,15 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 
-function SideBar({ setTopUp }) {
+function SideBar({ setTopUp, maxCustom }) {
   // const [topUp, setTopUp] = useState();
   const router = useRouter();
+  const transferRegex = /^\/transfer(\/.*)?$/;
   return (
-    <section className="hidden w-[30%] h-[95vh] lg:h-[105vh] xl:h-[95vh] lg:flex">
+    <section
+      className={`hidden w-[30%] h-[95vh] lg:h-[105vh] xl:h-[95vh] lg:flex ${
+        maxCustom && "lg:h-[155vh] xl:h-[155.1vh]"
+      }`}>
       <div
         className={`w-[85%] h-full bg-white relative py-12 flex rounded-xl flex-col gap-12`}>
         <Link
@@ -22,7 +26,7 @@ function SideBar({ setTopUp }) {
         <Link
           href={"/transfer"}
           className={`flex pl-[15%] gap-4 text-2xl hover:border-l-4 hover:border-solid hover:border-blue-primary hover:text-blue-primary hover:font-semibold ${
-            router.pathname === "/transfer"
+            transferRegex.test(router.pathname)
               ? "border-l-4 border-solid border-blue-600 text-blue-primary font-semibold"
               : "text-grey-secondary font-medium"
           }`}>

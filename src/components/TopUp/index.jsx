@@ -15,7 +15,7 @@ function TopUp({ setTopUp }) {
   const [loading, setLoading] = useState(false);
   const [linkTopUp, setLinkTopUp] = useState("");
   const token = useSelector((state) => state.auth.data.data.token);
-  const id = useSelector((state) => state.auth.data.data.id);
+  // const id = useSelector((state) => state.auth.data.data.id);
   const valuePrice = (e) => {
     setInput(true);
     setPrice(e.target.value);
