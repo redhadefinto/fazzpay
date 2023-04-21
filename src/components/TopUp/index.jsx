@@ -79,6 +79,7 @@ function TopUp({ setTopUp }) {
                 onClick={(e) => {
                   e.preventDefault();
                   setLinkTopUp("");
+                  setPrice("");
                 }}>
                 Cancel
               </button>

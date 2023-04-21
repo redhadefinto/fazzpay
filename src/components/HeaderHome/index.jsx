@@ -4,6 +4,7 @@ import profile from "../../assets/profile/profile.png";
 import { useSelector } from "react-redux";
 function HeaderHome() {
   const profileUser = useSelector((state) => state.profile.data.data);
+  console.log(profileUser);
   return (
     <nav className="flex bg-blue-primary px-[8%] py-8 rounded-b-3xl lg:rounded-none lg:bg-white-primary lg:px-[5%] xl:px-[8%]">
       <div className="w-[50%] lg:flex items-center hidden">
@@ -14,11 +15,12 @@ function HeaderHome() {
           src={
             profileUser.image === null
               ? `${process.env.CLOUDINARY_LINK}Fazzpay/example_qx2pf0.png`
-              : `${process.envCLOUDINARY_LINK}${profileUser.image}`
+              : `${process.env.CLOUDINARY_LINK}${profileUser.image}`
           }
           alt="profile"
           width={50}
           height={50}
+          className="rounded-md"
         />
         <div className="flex flex-col gap-1 lg:mr-[20%] xl:mr-[17%]">
           <p className="font-semibold text-base text-white lg:text-black">

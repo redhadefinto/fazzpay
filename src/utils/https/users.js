@@ -50,3 +50,13 @@ export const cekPin = (getPin, token, controller) => {
     },
   });
 };
+
+export const updateImage = (formData, id, token, controller) => {
+  const url = `${baseUrl}/user/image/${id}`;
+  return axios.patch(url, formData, {
+    signal: controller.signal,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
