@@ -146,6 +146,8 @@ function Confirmation() {
                 onClick={(e) => {
                   e.preventDefault();
                   setModalPin(false);
+                  setGetPin("");
+                  setInput(true);
                 }}>
                 X
               </button>
