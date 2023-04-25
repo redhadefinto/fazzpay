@@ -11,13 +11,15 @@ function TransferCard({ userId, image, firstName, lastName, phone }) {
         onClick={() => {
           router.push(`/transfer/${userId}`);
         }}>
-        <Image
-          src={image}
-          alt="profile"
-          width={60}
-          height={60}
-          className="rounded-lg"
-        />
+        <div className="w-[60px] h-[60px] flex">
+          <Image
+            src={image}
+            alt="profile"
+            className="rounded-lg w-[60px] h-[60px] object-cover"
+            width={60}
+            height={60}
+          />
+        </div>
         <div className="flex flex-col gap-2">
           <p className="text-grey-primary font-bold">
             {firstName} {lastName}

@@ -10,3 +10,12 @@ export const getHistory = (token, controller) => {
     },
   });
 };
+
+export const getHistories = (token, params, controller) => {
+  const { page, limit, filter } = params;
+  const url = `${baseUrl}/transaction/history?page=${page}&limit=${limit}&filter=${filter}`;
+  return axios.get(url, {
+    signal: controller.signal,
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};

@@ -12,7 +12,15 @@ function CardHomeHistory({ fullName, image, status, amount, type }) {
   return (
     <div className="flex gap-4">
       <div className="flex items-center justify-center">
-        <Image src={image} alt="profile" width={50} height={50} />
+        <div className="flex w-[55px] h-[55px]">
+          <Image
+            src={image}
+            alt="profile"
+            width={55}
+            height={55}
+            className="rounded-lg object-cover"
+          />
+        </div>
       </div>
       <div className="flex-1">
         <p className="text-grey-primary font-bold">{fullName}</p>
@@ -21,9 +29,11 @@ function CardHomeHistory({ fullName, image, status, amount, type }) {
       <div className="flex flex-wrap-reverse items-end">
         <p
           className={`text-center place-items-center text-sm font-semibold place-self-center ${
-            type === "topup" ? "text-green-600" : "text-red-600"
+            type === "topup" || type === "accept"
+              ? "text-green-600"
+              : "text-red-600"
           }`}>
-          {type === "topup" ? "+" : "-"} {rupiah(amount)}
+          {type === "topup" || type === "accept" ? "+" : "-"} {rupiah(amount)}
         </p>
       </div>
     </div>

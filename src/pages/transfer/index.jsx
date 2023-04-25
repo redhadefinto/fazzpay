@@ -20,7 +20,8 @@ function Transfer() {
   const controller = useMemo(() => new AbortController(), []);
   const [loading, setLoading] = useState(true);
   const [topUp, setTopUp] = useState();
-  const [search, setSearch] = useState("");
+  const params = router.query.search;
+  const [search, setSearch] = useState(params || "");
   const [datas, setDatas] = useState([]);
   const [page, setPage] = useState(1);
   // const [params, setParams] = useState();
@@ -31,11 +32,13 @@ function Transfer() {
     setPage(1);
     router.push(`/transfer?page=${page}&limit=10&search=${search}`);
   };
+  // console.log(window.URL.name);
   // console.log(router.query.search);
+  console.log(params);
   useEffect(() => {
     setLoading(true);
-    router.push(`/transfer?page=${page}&limit=10&search=${search}`);
-    getContact(page, router.query.search || "", token, controller)
+    router.push(`/transfer?page=${page}&limit=10&search=${params || search}`);
+    getContact(page, params || "", token, controller)
       .then((res) => {
         // console.log(res.data.data);
         // console.log(res);
@@ -57,7 +60,7 @@ function Transfer() {
       {topUp && <TopUp setTopUp={setTopUp} />}
       <HeaderHome />
       <main
-        className={`bg-white-secondary min-h-screen flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
+        className={`bg-white-secondary h-max flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
         <SideBar setTopUp={setTopUp} />
         <section className="w-full lg:w-[70%] mt-4 lg:mt-0">
           <div className="h-[95vh] bg-white-primary rounded-lg px-8 py-4 overflow-scroll overflow-x-hidden">
@@ -108,7 +111,7 @@ function Transfer() {
                     />
                   );
                 })}
-                <div className="w-full flex justify-center items-center gap-3">
+                <div className="w-full flex justify-center items-center gap-3 mt-8">
                   <button
                     className={`paginasi border-2 border-solid border-blue-primary text-blue-primary before:bg-blue-primary hover:text-white-primary ${
                       paginations.page === 1 &&

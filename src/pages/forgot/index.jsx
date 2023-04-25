@@ -6,6 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
 import Loaders from "@/components/Loaders";
 import { forgot } from "@/utils/https/auth";
+import publicRouter from "@/utils/wrapper/public.route";
+import publicRoute from "@/utils/wrapper/public.route";
 
 function Forgot() {
   const controller = useMemo(() => new AbortController(), []);
@@ -124,4 +126,4 @@ function Forgot() {
   );
 }
 
-export default Forgot;
+export default publicRoute(Forgot);

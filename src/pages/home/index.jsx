@@ -131,7 +131,8 @@ function Home() {
       },
     },
   };
-  console.log(chart);
+  // console.log(chart);
+  console.log(histories);
   return (
     <>
       {loading && (
@@ -145,14 +146,14 @@ function Home() {
       {topUp && <TopUp setTopUp={setTopUp} />}
       <HeaderHome />
       <main
-        className={`bg-white-secondary min-h-screen flex px-[8%] lg:py-8 lg:px-[5%] xl:px-[8%]`}>
+        className={`bg-white-secondary h-max flex px-[8%] pb-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
         {/* Side Bar */}
-        <SideBar setTopUp={setTopUp} maxDashboard={true} />
-        <section className="w-full lg:w-[70%] mt-8 lg:mt-0">
+        <SideBar setTopUp={setTopUp} widthCustom={true} />
+        <section className="w-full lg:w-[75%] mt-8 lg:mt-0">
           {/* Info Card */}
           <InfoCard setTopUp={setTopUp} />
-          <section className="lg:flex lg:mt-12 gap-8 mt-8 lg:h-[70vh] mb-8 xl:h-[80vh]">
-            <div className="bg-white lg:w-[60%] py-8 mb-12 lg:mb-0 rounded-xl">
+          <section className="lg:flex lg:mt-8 gap-6 min-h-max mt-8">
+            <div className="bg-white lg:w-[64%] py-8 mb-12 lg:mb-0 rounded-xl">
               <div className="flex bg-white">
                 <div className="w-[60%] flex flex-col items-center">
                   <i className="bi bi-arrow-down text-green-500 text-3xl font-extrabold"></i>
@@ -178,8 +179,8 @@ function Home() {
                 />
               </div>
             </div>
-            <div className="lg:w-[40%] bg-white px-4 py-8 rounded-xl">
-              <div className="flex justify-between mb-8 xl:mb-16">
+            <div className="lg:w-[40%] bg-white px-4 py-8 rounded-xl overflow-scroll overflow-x-hidden lg:px-2">
+              <div className="flex justify-between mb-8 xl:mb-12">
                 <p className="font-semibold">Transaction History</p>
                 <Link href={"/history"} className="font-bold text-blue-primary">
                   See all

@@ -14,6 +14,7 @@ import { transferBalance } from "@/utils/https/transfer";
 import { ToastContainer, toast } from "react-toastify";
 import FooterHome from "@/components/FooterHome";
 import transactions, { transactionActions } from "@/redux/slices/transactions";
+import privateRoute from "@/utils/wrapper/private.route";
 
 function TransferById() {
   const router = useRouter();
@@ -103,29 +104,31 @@ function TransferById() {
       {topUp && <TopUp setTopUp={setTopUp} />}
       <HeaderHome />
       <main
-        className={`bg-white-secondary min-h-screen flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
+        className={`bg-white-secondary h-max flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
         <SideBar setTopUp={setTopUp} />
-        <section className="w-full lg:w-[70%] mt-4 lg:mt-0">
-          <div className="h-[95vh] bg-white-primary rounded-lg px-8 py-4">
+        <section className="w-full min-h-max  lg:w-[70%] mt-4 lg:mt-0">
+          <div className="min-h-screen bg-white-primary rounded-lg px-8 py-4">
             <p className="font-bold">Transfer Money</p>
             {loading || !data ? (
-              <div className="flex justify-center items-center mt-12 relative h-[50%]">
+              <div className="flex justify-center items-center mt-48 relative h-[100%]">
                 <Loaders />
               </div>
             ) : (
               <>
                 <div className="flex gap-6 bg-white mt-8 px-2 py-4 mb-8">
-                  <Image
-                    src={
-                      data.image === null
-                        ? `${process.env.CLOUDINARY_LINK}Fazzpay/example_qx2pf0.png`
-                        : `${process.env.CLOUDINARY_LINK}${data.image}`
-                    }
-                    alt="profile"
-                    width={60}
-                    height={60}
-                    className="rounded-lg"
-                  />
+                  <div className="flex w-[60px] h-[60px] bg-cover">
+                    <Image
+                      src={
+                        data.image === null
+                          ? `${process.env.CLOUDINARY_LINK}Fazzpay/example_qx2pf0.png`
+                          : `${process.env.CLOUDINARY_LINK}${data.image}`
+                      }
+                      alt="profile"
+                      width={60}
+                      height={60}
+                      className="rounded-lg object-cover"
+                    />
+                  </div>
                   <div className="flex flex-col gap-2">
                     <p className="text-grey-primary font-bold">
                       {data.firstName} {data.lastName}
@@ -197,4 +200,4 @@ function TransferById() {
   );
 }
 
-export default TransferById;
+export default privateRoute(TransferById);

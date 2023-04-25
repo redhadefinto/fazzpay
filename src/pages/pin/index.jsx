@@ -11,6 +11,7 @@ import { setPin } from "@/utils/https/auth";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Loaders from "@/components/Loaders";
+import privateRoute from "@/utils/wrapper/private.route";
 const ReactCodeInput = dynamic(import("react-code-input"));
 
 function Pin() {
@@ -177,4 +178,4 @@ function Pin() {
   );
 }
 
-export default Pin;
+export default privateRoute(Pin);

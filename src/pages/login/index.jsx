@@ -9,6 +9,7 @@ import { authAction } from "../../redux/slices/auth";
 import { useRouter } from "next/router";
 import Loaders from "@/components/Loaders";
 import { profileAction } from "@/redux/slices/profile";
+import publicRoute from "@/utils/wrapper/public.route";
 
 function Login() {
   const controller = useMemo(() => new AbortController(), []);
@@ -192,4 +193,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default publicRoute(Login);

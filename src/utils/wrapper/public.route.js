@@ -1,17 +1,25 @@
+import Loaders from "@/components/Loaders";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-const PublicRoute = ({ children }) => {
-  const router = useRouter();
-  const dataArray = useSelector((state) => state.auth.data.data);
-  useEffect(() => {
-    if (dataArray) {
-      router.push("/home");
-    }
-  }, [dataArray, router]);
+const publicRoute = (WrappedComponent) => {
+  const Auth = (props) => {
+    const dataArray = useSelector((state) => state.auth.data.data);
+    const router = useRouter();
+    useEffect(() => {
+      if (dataArray) {
+        router.push("/home");
+      }
+    }, [dataArray, router]);
 
-  return <>{children}</>;
+    if (!dataArray) {
+      return <WrappedComponent {...props} />;
+    }
+    return <Loaders />;
+  };
+
+  return Auth;
 };
 
-export default PublicRoute;
+export default publicRoute;

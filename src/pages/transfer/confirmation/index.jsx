@@ -6,15 +6,18 @@ import TopUp from "@/components/TopUp";
 import Image from "next/image";
 import React, { useMemo, useState } from "react";
 import profile from "../../../assets/profile/profile.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { transferBalance } from "@/utils/https/transfer";
 import ReactCodeInput from "react-code-input";
 import { ToastContainer, toast } from "react-toastify";
 import { cekPin } from "@/utils/https/users";
 import FooterHome from "@/components/FooterHome";
 import { useRouter } from "next/router";
+import { transactionActions } from "@/redux/slices/transactions";
+import privateRoute from "@/utils/wrapper/private.route";
 function Confirmation() {
   const [topUp, setTopUp] = useState();
+  const dispatch = useDispatch();
   const router = useRouter();
   const controller = useMemo(() => new AbortController(), []);
   const [loading, setLoading] = useState();
@@ -52,7 +55,6 @@ function Confirmation() {
     )
       .then((res) => {
         console.log(res);
-        // toast.success("succes");
         router.push("/transfer/succes");
       })
       .catch((err) => {
@@ -168,10 +170,10 @@ function Confirmation() {
       )}
       <HeaderHome />
       <main
-        className={`bg-white-secondary min-h-screen flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
+        className={`bg-white-secondary h-max flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
         <SideBar setTopUp={setTopUp} maxCustom={true} />
         <section className="w-full lg:w-[70%] mt-4 lg:mt-0">
-          <div className="h-[135vh] bg-white-primary rounded-lg px-8 py-4 lg:h-[135vh] xl:h-[135vh]">
+          <div className="min-h-max bg-white-primary rounded-lg px-8 py-4">
             <p className="font-bold">Transfer To</p>
             <>
               <div className="flex gap-6 bg-white mt-8 px-2 py-4 mb-8 h-[11%]">
@@ -184,7 +186,7 @@ function Confirmation() {
                   alt="profile"
                   width={60}
                   height={60}
-                  className="rounded-lg"
+                  className="rounded-lg object-cover"
                 />
                 <div className="flex flex-col gap-2">
                   <p className="text-grey-primary font-bold">
@@ -248,4 +250,4 @@ function Confirmation() {
   );
 }
 
-export default Confirmation;
+export default privateRoute(Confirmation);

@@ -7,6 +7,8 @@ import failedIcon from "../../assets/icon/failed.png";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import FooterHome from "@/components/FooterHome";
+import privateRoute from "@/utils/wrapper/private.route";
 function Failed() {
   const [topUp, setTopUp] = useState();
   const dispatch = useDispatch();
@@ -53,10 +55,10 @@ function Failed() {
       {topUp && <TopUp setTopUp={setTopUp} />}
       <HeaderHome />
       <main
-        className={`bg-white-secondary min-h-screen flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
-        <SideBar setTopUp={setTopUp} maxCustom={true} />
-        <section className="w-full lg:w-[70%] mt-4 lg:mt-0">
-          <div className="h-[155vh] bg-white-primary rounded-lg px-8 py-4 lg:h-[155vh] xl:h-[155vh]">
+        className={`bg-white-secondary h-max flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
+        <SideBar setTopUp={setTopUp} />
+        <section className="w-full min-h-max lg:w-[70%] mt-4 lg:mt-0">
+          <div className="min-h-max bg-white-primary rounded-lg px-8 py-4">
             <div className="w-full flex flex-col justify-center items-center gap-4 mt-8">
               <Image src={failedIcon} alt="Succes" />
               <p className="text-[#4D4B57] font-bold text-xl">
@@ -127,8 +129,9 @@ function Failed() {
           </div>
         </section>
       </main>
+      <FooterHome />
     </>
   );
 }
 
-export default Failed;
+export default privateRoute(Failed);

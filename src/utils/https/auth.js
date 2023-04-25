@@ -34,6 +34,16 @@ export const setPin = (pin, id, token, controller) => {
   });
 };
 
+export const updatePassword = (body, id, token, controller) => {
+  const url = `${baseUrl}/user/password/${id}`;
+  return axios.patch(url, body, {
+    signal: controller.signal,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
 export const forgot = (body, controller) => {
   const url = `${baseUrl}/auth/forgot-password`;
   return axios.post(url, body, {
@@ -45,5 +55,14 @@ export const resetPassword = (body, controller) => {
   const url = `${baseUrl}/auth/reset-password`;
   return axios.patch(url, body, {
     signal: controller.signal,
+  });
+};
+export const logOut = (token, controller) => {
+  const url = `${baseUrl}/auth/logout`;
+  return axios.post(url, {
+    signal: controller.signal,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   });
 };
