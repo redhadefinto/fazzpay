@@ -56,7 +56,7 @@ E Wallet Website FazzPayy to solve your banking problem
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/mabdullah12101/FazzPay-Project.git
+   git clone https://github.com/redhadefinto/fazzpay.git
    ```
 2. Install NPM packages
    ```sh
