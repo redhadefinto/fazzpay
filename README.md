@@ -35,7 +35,7 @@
 ## About The Project
 
 <!-- ![Product Name Screen Shot][product-screenshot] -->
-<img width="600" src="./public/index.png" alt="display-documentation">
+<img width="900" src="./public/index.png" alt="display-documentation">
 
 E Wallet Website FazzPayy to solve your banking problem
 
