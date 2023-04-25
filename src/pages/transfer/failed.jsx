@@ -94,7 +94,7 @@ function Failed() {
             </div>
             <p className="text-[#514F5B] font-bold mt-12">Transfer to</p>
             <div className="flex gap-6 bg-white mt-4 px-2 py-4 mb-8 drop-shadow-lg rounded-md">
-              <div className="">
+              <div className="flex w-[60px] h-[60px] bg-cover">
                 <Image
                   src={
                     transactions.image === null
@@ -104,7 +104,7 @@ function Failed() {
                   alt="profile"
                   width={60}
                   height={60}
-                  className="rounded-lg"
+                  className="rounded-lg object-cover"
                 />
               </div>
               <div className="flex flex-col gap-2">

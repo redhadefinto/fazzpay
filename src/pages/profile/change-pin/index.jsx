@@ -1,3 +1,4 @@
+import FooterHome from "@/components/FooterHome";
 import HeaderHome from "@/components/HeaderHome";
 import Layout from "@/components/Layout";
 import Loaders from "@/components/Loaders";
@@ -115,6 +116,7 @@ function ChangePin() {
           </div>
         </section>
       </main>
+      <FooterHome />
       <ToastContainer
         position="top-center"
         autoClose={2000}

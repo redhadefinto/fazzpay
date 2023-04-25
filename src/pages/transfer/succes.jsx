@@ -11,6 +11,7 @@ import FooterHome from "@/components/FooterHome";
 import { transactionActions } from "@/redux/slices/transactions";
 import privateRoute from "@/utils/wrapper/private.route";
 import Layout from "@/components/Layout";
+import * as htmlToImage from "html-to-image";
 function Succes() {
   const [topUp, setTopUp] = useState();
   const dispatch = useDispatch();
@@ -25,6 +26,17 @@ function Succes() {
         .replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")}`;
     }
   };
+  function downloadImage(e) {
+    e.preventDefault();
+    const element = document.getElementById("history-payment");
+    htmlToImage.toPng(element).then(function (dataUrl) {
+      const link = document.createElement("a");
+      link.download = "history-payment.png";
+      link.href = dataUrl;
+      link.click();
+    });
+  }
+
   const transactionDate = () => {
     const arrbulan = [
       "Januari",
@@ -60,7 +72,9 @@ function Succes() {
         className={`bg-white-secondary h-max flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
         <SideBar setTopUp={setTopUp} />
         <section className="w-full min-h-max lg:w-[70%] mt-4 lg:mt-0">
-          <div className="min-h-max shadow-lg bg-white-primary rounded-lg px-8 py-4">
+          <div
+            className="min-h-max shadow-lg bg-white-primary rounded-lg px-8 py-4"
+            id="history-payment">
             <div className="w-full flex flex-col justify-center items-center gap-4 mt-8">
               <Image src={succesIcon} alt="Succes" />
               <p className="text-[#4D4B57] font-bold text-xl">
@@ -95,7 +109,7 @@ function Succes() {
             </div>
             <p className="text-[#514F5B] font-bold mt-12">Transfer to</p>
             <div className="flex gap-6 bg-white mt-4 px-2 py-4 mb-8 drop-shadow-lg rounded-md">
-              <div className="">
+              <div className="flex w-[60px] h-[60px] bg-cover">
                 <Image
                   src={
                     transactions.image === null
@@ -105,7 +119,7 @@ function Succes() {
                   alt="profile"
                   width={60}
                   height={60}
-                  className="rounded-lg"
+                  className="rounded-lg object-cover"
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -116,7 +130,9 @@ function Succes() {
               </div>
             </div>
             <div className="mt-16 flex justify-end w-full gap-4 lg:gap-8">
-              <button className="paginasi border-2 border-solid border-blue-primary text-blue-primary before:bg-blue-primary hover:text-white-primary">
+              <button
+                className="paginasi border-2 border-solid border-blue-primary text-blue-primary before:bg-blue-primary hover:text-white-primary"
+                onClick={downloadImage}>
                 <i className="bi bi-download mr-2 font-bold"></i>
                 Download
               </button>

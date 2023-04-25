@@ -1,3 +1,4 @@
+import FooterHome from "@/components/FooterHome";
 import HeaderHome from "@/components/HeaderHome";
 import Layout from "@/components/Layout";
 import Loaders from "@/components/Loaders";
@@ -130,16 +131,16 @@ function ChangePassword() {
                 onSubmit={handleSave}>
                 <div className="mb-6 flex gap-2 relative ">
                   <i
-                    className={`bi bi-lock-fill absolute text-2xl top-[10%] ${
-                      input ? "text-[#A9A9A999]" : "text-red-600"
+                    className={`bi bi-lock-fill absolute text-[#A9A9A999] text-2xl top-[10%] ${
+                      input ? "text-blue-primary" : "text-red-600"
                     }`}></i>
                   <input
                     name="oldPassword"
                     id="oldPassword"
                     onChange={onChangeForm}
                     type={`${iconEye1 ? "text" : "password"}`}
-                    className={`w-full border-b-2 border-solid  p-2 pl-10 focus:outline-none lg:w-[90%] ${
-                      input ? "border-grey-primary" : "border-red-600"
+                    className={`w-full border-b-2 border-solid border-grey-secondary  p-2 pl-10 focus:outline-none lg:w-[90%] ${
+                      input ? "border-blue-600" : "border-red-600"
                     }`}
                     placeholder="Current password"
                   />
@@ -151,16 +152,16 @@ function ChangePassword() {
                 </div>
                 <div className="mb-6 flex gap-2 relative ">
                   <i
-                    className={`bi bi-lock-fill text-[#A9A9A999] absolute text-2xl top-[10%] ${
-                      input ? "text-[#A9A9A999]" : "text-red-600"
+                    className={`bi bi-lock-fill text-[#A9A9A999]  absolute text-2xl top-[10%] ${
+                      input ? "text-blue-primary" : "text-red-600"
                     }`}></i>
                   <input
                     name="newPassword"
                     id="newPassword"
                     onChange={onChangeForm}
                     type={`${iconEye2 ? "text" : "password"}`}
-                    className={`w-full border-b-2 border-solid  p-2 pl-10 focus:outline-none lg:w-[90%] ${
-                      input ? "border-grey-primary" : "border-red-600"
+                    className={`w-full border-b-2 border-solid border-grey-secondary  p-2 pl-10 focus:outline-none lg:w-[90%] ${
+                      input ? "border-blue-600" : "border-red-600"
                     }`}
                     placeholder="New password"
                   />
@@ -172,16 +173,16 @@ function ChangePassword() {
                 </div>
                 <div className="mb-6 flex gap-2 relative ">
                   <i
-                    className={`bi bi-lock-fill absolute text-2xl top-[10%] ${
-                      input ? "text-[#A9A9A999]" : "text-red-600"
+                    className={`bi bi-lock-fill text-[#A9A9A999] absolute text-2xl top-[10%] ${
+                      input ? "text-blue-primary" : "text-red-600"
                     }`}></i>
                   <input
                     name="confirmPassword"
                     id="confirmPassword"
                     onChange={onChangeForm}
                     type={`${iconEye3 ? "text" : "password"}`}
-                    className={`w-full border-b-2 border-solid  p-2 pl-10 focus:outline-none lg:w-[90%] ${
-                      input ? "border-grey-primary" : "border-red-600"
+                    className={`w-full border-b-2 border-solid border-grey-secondary p-2 pl-10 focus:outline-none lg:w-[90%] ${
+                      input ? "border-blue-600" : "border-red-600"
                     }`}
                     placeholder="Confirm new password"
                   />
@@ -209,6 +210,7 @@ function ChangePassword() {
           </div>
         </section>
       </main>
+      <FooterHome />
       <ToastContainer
         position="top-center"
         autoClose={2000}

@@ -25,6 +25,7 @@ function Confirmation() {
   const [input, setInput] = useState(true);
   const [data, setData] = useState();
   const [modalPin, setModalPin] = useState(false);
+  const [cekPinError, setCekPinError] = useState(false);
   const [getPin, setGetPin] = useState("");
   const valuePin = (e) => (setInput(true), setGetPin(`${e}`));
   const transactions = useSelector((state) => state.transactions.data);
@@ -43,28 +44,33 @@ function Confirmation() {
         setInput(false);
         toast.error(err.response.data.msg);
         setLoading(false);
-        return;
+        setCekPinError(true);
       });
-    transferBalance(
-      {
-        receiverId: transactions.receiverId,
-        amount: transactions.amount,
-        notes: transactions.notes,
-      },
-      token,
-      controller
-    )
-      .then((res) => {
-        console.log(res);
-        router.push("/transfer/succes");
-      })
-      .catch((err) => {
-        console.log(err);
-        toast.error("error");
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    if (cekPinError === true) {
+      return;
+    } else {
+      transferBalance(
+        {
+          receiverId: transactions.receiverId,
+          amount: transactions.amount,
+          notes: transactions.notes,
+        },
+        token,
+        controller
+      )
+        .then((res) => {
+          console.log(res);
+          router.push("/transfer/succes");
+        })
+        .catch((err) => {
+          console.log(err);
+          toast.error("error");
+          router.push("/transfer/failed");
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
   };
   const transactionDate = () => {
     const arrbulan = [
@@ -178,17 +184,19 @@ function Confirmation() {
             <p className="font-bold">Transfer To</p>
             <>
               <div className="flex gap-6 bg-white mt-8 px-2 py-4 mb-8 h-[11%]">
-                <Image
-                  src={
-                    transactions.image === null
-                      ? `${process.env.CLOUDINARY_LINK}Fazzpay/example_qx2pf0.png`
-                      : `${process.env.CLOUDINARY_LINK}${transactions.image}`
-                  }
-                  alt="profile"
-                  width={60}
-                  height={60}
-                  className="rounded-lg object-cover"
-                />
+                <div className="flex w-[60px] h-[60px] bg-cover">
+                  <Image
+                    src={
+                      transactions.image === null
+                        ? `${process.env.CLOUDINARY_LINK}Fazzpay/example_qx2pf0.png`
+                        : `${process.env.CLOUDINARY_LINK}${transactions.image}`
+                    }
+                    alt="profile"
+                    width={60}
+                    height={60}
+                    className="rounded-lg object-cover"
+                  />
+                </div>
                 <div className="flex flex-col gap-2">
                   <p className="text-grey-primary font-bold">
                     {transactions.firstName} {transactions.lastName}

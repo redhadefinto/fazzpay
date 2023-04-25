@@ -1,4 +1,5 @@
 import CardHist from "@/components/CardHist";
+import FooterHome from "@/components/FooterHome";
 import HeaderHome from "@/components/HeaderHome";
 import Layout from "@/components/Layout";
 import Loaders from "@/components/Loaders";
@@ -155,6 +156,7 @@ function History() {
           </div>
         </section>
       </main>
+      <FooterHome />
     </Layout>
   );
 }
