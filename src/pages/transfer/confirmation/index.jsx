@@ -39,38 +39,39 @@ function Confirmation() {
     setInput(true);
     setLoading(true);
     cekPin(getPin, token, controller)
-      .then()
+      .then(() => {
+        transferBalance(
+          {
+            receiverId: transactions.receiverId,
+            amount: transactions.amount,
+            notes: transactions.notes,
+          },
+          token,
+          controller
+        )
+          .then((res) => {
+            // console.log(res);
+            router.push("/transfer/succes");
+          })
+          .catch((err) => {
+            console.log(err);
+            toast.error("error");
+            router.push("/transfer/failed");
+          })
+          .finally(() => {
+            setLoading(false);
+          });
+      })
       .catch((err) => {
         setInput(false);
         toast.error(err.response.data.msg);
         setLoading(false);
         setCekPinError(true);
+        return;
+      })
+      .finally(() => {
+        setLoading(false);
       });
-    if (cekPinError === true) {
-      return;
-    } else {
-      transferBalance(
-        {
-          receiverId: transactions.receiverId,
-          amount: transactions.amount,
-          notes: transactions.notes,
-        },
-        token,
-        controller
-      )
-        .then((res) => {
-          console.log(res);
-          router.push("/transfer/succes");
-        })
-        .catch((err) => {
-          console.log(err);
-          toast.error("error");
-          router.push("/transfer/failed");
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    }
   };
   const transactionDate = () => {
     const arrbulan = [
@@ -125,7 +126,7 @@ function Confirmation() {
       WebkitAppearance: "none",
     },
   };
-  console.log(transactions);
+  // console.log(transactions);
   return (
     <Layout title={"Confirm"}>
       {loading && (
