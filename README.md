@@ -34,7 +34,8 @@
 
 ## About The Project
 
-![Product Name Screen Shot][product-screenshot]
+<!-- ![Product Name Screen Shot][product-screenshot] -->
+<img width="600" src="./public/index.png" alt="display-documentation">
 
 E Wallet Website FazzPayy to solve your banking problem
 
@@ -120,7 +121,8 @@ Project Link: [https://github.com/redhadefinto/fazzpay](https://github.com/redha
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[product-screenshot]: index.png
+<!-- [product-screenshot]: index.png -->
+
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
