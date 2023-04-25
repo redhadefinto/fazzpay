@@ -3,10 +3,12 @@ import Image from "next/image";
 import profile from "../../assets/profile/profile.png";
 import { useSelector } from "react-redux";
 import Loaders from "../Loaders";
+import { useRouter } from "next/router";
 function HeaderHome() {
   // const [loading, setLoading] = useState(false);
   const profileUser = useSelector((state) => state.profile.data.data);
   // console.log(profileUser);
+  const router = useRouter();
   return (
     <>
       {!profileUser ? (
@@ -16,7 +18,14 @@ function HeaderHome() {
       ) : (
         <nav className="flex bg-blue-primary px-[8%] py-8 rounded-b-3xl lg:rounded-none lg:bg-white-primary lg:px-[5%] xl:px-[8%]">
           <div className="w-[50%] lg:flex items-center hidden">
-            <p className=" lg:text-blue-primary font-bold text-3xl">FazzPay</p>
+            <button
+              className=" lg:text-blue-primary font-bold text-3xl"
+              onClick={(e) => {
+                e.preventDefault();
+                router.push("/");
+              }}>
+              FazzPay
+            </button>
           </div>
           <div className="lg:w-[50%] w-full flex gap-6 items-center lg:justify-end relative">
             <Image

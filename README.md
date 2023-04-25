@@ -2,7 +2,7 @@
 <h3 align="center">Fazzpay Project</h3>
 
   <p align="center">
-    <a href="https://fazzpay-project.vercel.app">View Demo</a>
+    <a href="https://fazzpay-ecru.vercel.app">View Demo</a>
     ·
     <a href="https://github.com/redhadefinto/fazzpay/issues">Report Bug</a>
     ·
