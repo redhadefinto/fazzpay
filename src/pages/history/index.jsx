@@ -1,5 +1,6 @@
 import CardHist from "@/components/CardHist";
 import HeaderHome from "@/components/HeaderHome";
+import Layout from "@/components/Layout";
 import Loaders from "@/components/Loaders";
 import SideBar from "@/components/SideBar";
 import SideBarMobile from "@/components/SideBarMobile";
@@ -58,9 +59,10 @@ function History() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter, metaPage]);
   // console.log(`filter ${filter}`);
+  console.log(dataHistory);
   // console.log(`sort: ${sort}`);
   return (
-    <>
+    <Layout title="History">
       {/* {loading && (
         <div className="fixed w-full h-full bg-[rgba(0,0,0,.5)] z-[60]">
           <Loaders />
@@ -72,8 +74,8 @@ function History() {
       <main
         className={`bg-white-secondary h-max flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
         <SideBar setTopUp={setTopUp} />
-        <section className="w-full min-h-screen h-full lg:w-[70%] mt-4 lg:mt-0 overflow-scroll overflow-x-hidden">
-          <div className="min-h-screen bg-white-primary rounded-lg py-8 px-6">
+        <section className="w-full min-h-screen lg:w-[70%] mt-4 shadow-lg lg:mt-0 overflow-scroll overflow-x-hidden">
+          <div className="min-h-screen shadow-lg bg-white-primary rounded-lg py-8 px-8">
             {loading ? (
               <div className="w-full h-full relative pt-[70%]">
                 <Loaders />
@@ -115,7 +117,7 @@ function History() {
                     </select>
                   </div>
                 </section>
-                <section className=" flex flex-col  md:pr-4">
+                <section className=" flex flex-col ">
                   {dataHistory.map((data) => (
                     <CardHist
                       key={data.id}
@@ -127,6 +129,7 @@ function History() {
                       type={data.type}
                       amount={data.amount}
                       times={data.createdAt}
+                      // notes={data.notes}
                     />
                   ))}
                 </section>
@@ -152,7 +155,7 @@ function History() {
           </div>
         </section>
       </main>
-    </>
+    </Layout>
   );
 }
 

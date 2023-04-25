@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import Loaders from "@/components/Loaders";
 import privateRoute from "@/utils/wrapper/private.route";
+import Layout from "@/components/Layout";
 const ReactCodeInput = dynamic(import("react-code-input"));
 
 function Pin() {
@@ -66,7 +67,7 @@ function Pin() {
   };
 
   return (
-    <>
+    <Layout title={"Pin"}>
       {loading && (
         <div className="fixed w-full h-full bg-[rgba(0,0,0,.5)] z-50">
           <Loaders />
@@ -174,7 +175,7 @@ function Pin() {
           theme="light"
         />
       </main>
-    </>
+    </Layout>
   );
 }
 

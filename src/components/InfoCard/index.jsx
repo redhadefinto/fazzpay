@@ -21,7 +21,7 @@ function InfoCard({ setTopUp }) {
           <Loaders />
         </div>
       ) : (
-        <section className="flex bg-blue-primary w-full text-white-primary px-4 py-8 rounded-3xl lg:px-8">
+        <section className="flex shadow-xl bg-blue-primary w-full text-white-primary px-4 py-8 rounded-3xl lg:px-8">
           <div className="w-[60%] flex flex-col gap-4 justify-center">
             <p>Balance</p>
             <p className="font-bold text-xl flex flex-wrap lg:text-3xl">

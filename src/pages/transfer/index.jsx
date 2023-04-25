@@ -13,6 +13,7 @@ import FooterHome from "@/components/FooterHome";
 import { getContact } from "@/utils/https/users";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import Layout from "@/components/Layout";
 
 // import { useSearchParams } from "next/navigation";
 function Transfer() {
@@ -55,15 +56,15 @@ function Transfer() {
   // console.log(paginations);
   // console.log(datas);
   return (
-    <>
+    <Layout title={"Transfer"}>
       <SideBarMobile setTopUp={setTopUp} />
       {topUp && <TopUp setTopUp={setTopUp} />}
       <HeaderHome />
       <main
-        className={`bg-white-secondary h-max flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
+        className={`bg-white-secondary shadow-lg h-max flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
         <SideBar setTopUp={setTopUp} />
         <section className="w-full lg:w-[70%] mt-4 lg:mt-0">
-          <div className="h-[95vh] bg-white-primary rounded-lg px-8 py-4 overflow-scroll overflow-x-hidden">
+          <div className="h-[95vh] shadow-lg bg-white-primary rounded-lg px-8 py-4 overflow-scroll overflow-x-hidden">
             <p className="font-bold">Search Receiver</p>
             <div className="bg-[#3A3D421A] mt-8 rounded-lg flex gap-4 relative min-[100px]">
               <i
@@ -150,7 +151,7 @@ function Transfer() {
         </section>
       </main>
       <FooterHome />
-    </>
+    </Layout>
   );
 }
 

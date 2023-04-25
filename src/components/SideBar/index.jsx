@@ -73,7 +73,7 @@ function SideBar({ setTopUp, widthCustom }) {
       )}
       <section className={`hidden w-[30%] min-h-max lg:flex`}>
         <div
-          className={`h-full bg-white relative py-12 flex rounded-xl flex-col gap-12 ${
+          className={`h-full bg-white shadow-xl relative py-12 flex rounded-xl flex-col gap-12 ${
             widthCustom ? "w-[94%]" : "w-[90%]"
           }`}>
           <Link

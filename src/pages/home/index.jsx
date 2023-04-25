@@ -25,6 +25,7 @@ import {
   Legend,
 } from "chart.js";
 import { getHistory } from "@/utils/https/history";
+import Layout from "@/components/Layout";
 function Home() {
   ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
   const [topUp, setTopUp] = useState();
@@ -134,7 +135,7 @@ function Home() {
   // console.log(chart);
   console.log(histories);
   return (
-    <>
+    <Layout title="Home">
       {loading && (
         <div className="fixed w-full h-full bg-[rgba(0,0,0,.5)] z-[60]">
           <Loaders />
@@ -153,7 +154,7 @@ function Home() {
           {/* Info Card */}
           <InfoCard setTopUp={setTopUp} />
           <section className="lg:flex lg:mt-8 gap-6 min-h-max mt-8">
-            <div className="bg-white lg:w-[64%] py-8 mb-12 lg:mb-0 rounded-xl">
+            <div className="bg-white lg:w-[64%] shadow-lg py-8 mb-12 lg:mb-0 rounded-xl">
               <div className="flex bg-white">
                 <div className="w-[60%] flex flex-col items-center">
                   <i className="bi bi-arrow-down text-green-500 text-3xl font-extrabold"></i>
@@ -179,7 +180,7 @@ function Home() {
                 />
               </div>
             </div>
-            <div className="lg:w-[40%] bg-white px-4 py-8 rounded-xl overflow-scroll overflow-x-hidden lg:px-2">
+            <div className="lg:w-[40%] shadow-lg bg-white px-4 py-8 rounded-xl overflow-scroll overflow-x-hidden lg:px-2">
               <div className="flex justify-between mb-8 xl:mb-12">
                 <p className="font-semibold">Transaction History</p>
                 <Link href={"/history"} className="font-bold text-blue-primary">
@@ -217,7 +218,7 @@ function Home() {
         </section>
       </main>
       <FooterHome />
-    </>
+    </Layout>
   );
 }
 

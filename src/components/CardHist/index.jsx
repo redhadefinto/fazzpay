@@ -17,7 +17,7 @@ function CardHist(props) {
   const imgDefault =
     "https://res.cloudinary.com/dd1uwz8eu/image/upload/v1666604839/";
   return (
-    <section className=" flex  justify-between  w-full mt-8 ">
+    <section className=" flex  justify-between  w-full mt-8 bg-white drop-shadow-lg px-2 py-4 rounded-lg hover:bg-slate-100 hover:transition-transform hover:scale-105 cursor-pointer">
       <div className=" flex gap-5">
         <div className=" w-[3.3rem] h-[3.3rem] rounded-[0.68rem] overflow-hidden">
           <Image
@@ -37,9 +37,9 @@ function CardHist(props) {
           </div>
         </div>
       </div>
-      <div className=" text-base justify-center items-center flex font-bold cursor-pointer">
+      <div className=" text-base text-end justify-end items-end flex font-bold cursor-pointer flex-col">
         <p
-          className={`text-2xl md:text-lg ${
+          className={`text-base lg:text-2xl md:text-lg ${
             props.type === "accept" || props.type === "topup"
               ? "text-green-500"
               : "text-error"
@@ -47,6 +47,7 @@ function CardHist(props) {
           {props.type === "accept" || props.type === "topup" ? "+ " : "- "}
           Rp. {props.amount.toLocaleString("id-ID")}
         </p>
+        <p className="text-grey-primary">{props.notes || "-"}</p>
       </div>
     </section>
   );

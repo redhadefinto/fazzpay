@@ -1,4 +1,5 @@
 import HeaderHome from "@/components/HeaderHome";
+import Layout from "@/components/Layout";
 import Loaders from "@/components/Loaders";
 import SideBar from "@/components/SideBar";
 import SideBarMobile from "@/components/SideBarMobile";
@@ -63,7 +64,7 @@ function ChangePhoneNumber() {
   };
   // console.log(profileUser);
   return (
-    <>
+    <Layout title={"Change Phone"}>
       {loading && (
         <div className="fixed w-full h-full bg-[rgba(0,0,0,.5)] z-[60]">
           <Loaders />
@@ -76,7 +77,7 @@ function ChangePhoneNumber() {
         className={`bg-white-secondary h-max flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
         <SideBar setTopUp={setTopUp} />
         <section className="w-full h-full min-h-max lg:w-[70%] mt-4 lg:mt-0">
-          <div className="min-h-screen bg-white-primary rounded-lg py-8 lg:py-12">
+          <div className="min-h-screen shadow-lg bg-white-primary rounded-lg py-8 lg:py-12">
             <section className=" flex px-8 flex-col gap-6 mb-14">
               <div className=" text-dark font-bold text-xl">
                 <h3>Edit Phone Number</h3>
@@ -125,7 +126,7 @@ function ChangePhoneNumber() {
         draggable={true}
         theme="light"
       />
-    </>
+    </Layout>
   );
 }
 

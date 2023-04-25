@@ -16,6 +16,7 @@ import Loaders from "@/components/Loaders";
 import { logOut } from "@/utils/https/auth";
 import { authAction } from "@/redux/slices/auth";
 import privateRoute from "@/utils/wrapper/private.route";
+import Layout from "@/components/Layout";
 function Profile() {
   const [topUp, setTopUp] = useState();
   const controller = useMemo(() => new AbortController(), []);
@@ -103,7 +104,7 @@ function Profile() {
   };
   console.log(profileUpdate);
   return (
-    <>
+    <Layout title={"Profile"}>
       {loading && (
         <div className="fixed w-full h-full bg-[rgba(0,0,0,.5)] z-[60]">
           <Loaders />
@@ -144,7 +145,7 @@ function Profile() {
         className={`bg-white-secondary h-max flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
         <SideBar setTopUp={setTopUp} />
         <section className="w-full min-h-max h-full lg:w-[70%] mt-4 lg:mt-0">
-          <div className="min-h-max bg-white-primary rounded-lg py-8">
+          <div className="min-h-max shadow-lg bg-white-primary rounded-lg py-8">
             <div className=" flex flex-col justify-center items-center gap-3">
               <div className=" w-20 h-20 rounded-md overflow-hidden">
                 {profileUpdate && (
@@ -266,7 +267,7 @@ function Profile() {
         draggable={true}
         theme="light"
       />
-    </>
+    </Layout>
   );
 }
 

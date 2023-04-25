@@ -1,4 +1,5 @@
 import HeaderHome from "@/components/HeaderHome";
+import Layout from "@/components/Layout";
 import Loaders from "@/components/Loaders";
 import SideBar from "@/components/SideBar";
 import SideBarMobile from "@/components/SideBarMobile";
@@ -98,7 +99,7 @@ function ChangePassword() {
   };
   console.log(form);
   return (
-    <>
+    <Layout title={"Change Password"}>
       {loading && (
         <div className="fixed w-full h-full bg-[rgba(0,0,0,.5)] z-[60]">
           <Loaders />
@@ -111,7 +112,7 @@ function ChangePassword() {
         className={`bg-white-secondary h-max flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
         <SideBar setTopUp={setTopUp} />
         <section className="w-full h-full min-h-max lg:w-[70%] mt-4 lg:mt-0">
-          <div className="min-h-max bg-white-primary rounded-lg py-8">
+          <div className="min-h-max shadow-lg bg-white-primary rounded-lg py-8">
             <section className=" flex px-8 flex-col gap-6 mb-14">
               <div className=" text-dark font-bold text-xl">
                 <h3>Change Password</h3>
@@ -217,7 +218,7 @@ function ChangePassword() {
         draggable={true}
         theme="light"
       />
-    </>
+    </Layout>
   );
 }
 

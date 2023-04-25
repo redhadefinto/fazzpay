@@ -15,6 +15,7 @@ import FooterHome from "@/components/FooterHome";
 import { useRouter } from "next/router";
 import { transactionActions } from "@/redux/slices/transactions";
 import privateRoute from "@/utils/wrapper/private.route";
+import Layout from "@/components/Layout";
 function Confirmation() {
   const [topUp, setTopUp] = useState();
   const dispatch = useDispatch();
@@ -120,7 +121,7 @@ function Confirmation() {
   };
   console.log(transactions);
   return (
-    <>
+    <Layout title={"Confirm"}>
       {loading && (
         <div className="fixed w-full h-full bg-[rgba(0,0,0,.5)] z-50">
           <Loaders />
@@ -173,7 +174,7 @@ function Confirmation() {
         className={`bg-white-secondary h-max flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
         <SideBar setTopUp={setTopUp} maxCustom={true} />
         <section className="w-full lg:w-[70%] mt-4 lg:mt-0">
-          <div className="min-h-max bg-white-primary rounded-lg px-8 py-4">
+          <div className="min-h-max shadow-lg bg-white-primary rounded-lg px-8 py-4">
             <p className="font-bold">Transfer To</p>
             <>
               <div className="flex gap-6 bg-white mt-8 px-2 py-4 mb-8 h-[11%]">
@@ -246,7 +247,7 @@ function Confirmation() {
         draggable={true}
         theme="light"
       />
-    </>
+    </Layout>
   );
 }
 

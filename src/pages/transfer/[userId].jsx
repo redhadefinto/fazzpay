@@ -15,6 +15,7 @@ import { ToastContainer, toast } from "react-toastify";
 import FooterHome from "@/components/FooterHome";
 import transactions, { transactionActions } from "@/redux/slices/transactions";
 import privateRoute from "@/utils/wrapper/private.route";
+import Layout from "@/components/Layout";
 
 function TransferById() {
   const router = useRouter();
@@ -99,7 +100,7 @@ function TransferById() {
   // console.log(balance);
   // console.log(profileUser.balance);
   return (
-    <>
+    <Layout title={"Transfer"}>
       <SideBarMobile setTopUp={setTopUp} />;
       {topUp && <TopUp setTopUp={setTopUp} />}
       <HeaderHome />
@@ -107,7 +108,7 @@ function TransferById() {
         className={`bg-white-secondary h-max flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
         <SideBar setTopUp={setTopUp} />
         <section className="w-full min-h-max  lg:w-[70%] mt-4 lg:mt-0">
-          <div className="min-h-screen bg-white-primary rounded-lg px-8 py-4">
+          <div className="min-h-screen shadow-lg bg-white-primary rounded-lg px-8 py-4">
             <p className="font-bold">Transfer Money</p>
             {loading || !data ? (
               <div className="flex justify-center items-center mt-48 relative h-[100%]">
@@ -196,7 +197,7 @@ function TransferById() {
         draggable={true}
         theme="light"
       />
-    </>
+    </Layout>
   );
 }
 

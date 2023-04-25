@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import Loaders from "@/components/Loaders";
 import { profileAction } from "@/redux/slices/profile";
 import publicRoute from "@/utils/wrapper/public.route";
+import Layout from "@/components/Layout";
 
 function Login() {
   const controller = useMemo(() => new AbortController(), []);
@@ -75,7 +76,7 @@ function Login() {
       });
   };
   return (
-    <>
+    <Layout title={"Login"}>
       {loading && (
         <div className="fixed w-full h-full bg-[rgba(0,0,0,.5)] z-10">
           <Loaders />
@@ -189,7 +190,7 @@ function Login() {
           theme="light"
         />
       </main>
-    </>
+    </Layout>
   );
 }
 

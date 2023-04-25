@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Loaders from "@/components/Loaders";
 import { useRouter } from "next/router";
 import { resetPassword } from "../../utils/https/auth";
+import Layout from "@/components/Layout";
 
 function ResetPassword() {
   const controller = useMemo(() => new AbortController(), []);
@@ -73,7 +74,7 @@ function ResetPassword() {
       });
   };
   return (
-    <>
+    <Layout title={"OTP"}>
       {loading && (
         <div className="fixed w-full h-full bg-[rgba(0,0,0,.5)] z-10">
           <Loaders />
@@ -182,7 +183,7 @@ function ResetPassword() {
           theme="light"
         />
       </main>
-    </>
+    </Layout>
   );
 }
 

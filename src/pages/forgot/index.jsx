@@ -8,6 +8,7 @@ import Loaders from "@/components/Loaders";
 import { forgot } from "@/utils/https/auth";
 import publicRouter from "@/utils/wrapper/public.route";
 import publicRoute from "@/utils/wrapper/public.route";
+import Layout from "@/components/Layout";
 
 function Forgot() {
   const controller = useMemo(() => new AbortController(), []);
@@ -44,7 +45,7 @@ function Forgot() {
       });
   };
   return (
-    <>
+    <Layout title={"Forgot"}>
       {loading && (
         <div className="fixed w-full h-full bg-[rgba(0,0,0,.5)] z-10">
           <Loaders />
@@ -122,7 +123,7 @@ function Forgot() {
           theme="light"
         />
       </main>
-    </>
+    </Layout>
   );
 }
 

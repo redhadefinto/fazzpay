@@ -8,6 +8,7 @@ import Link from "next/link";
 import Loaders from "@/components/Loaders";
 import { useRouter } from "next/router";
 import { register } from "../../utils/https/auth";
+import Layout from "@/components/Layout";
 
 function Register() {
   const controller = useMemo(() => new AbortController(), []);
@@ -69,7 +70,7 @@ function Register() {
       });
   };
   return (
-    <>
+    <Layout title={"Register"}>
       {loading && (
         <div className="fixed w-full h-full bg-[rgba(0,0,0,.5)] z-10">
           <Loaders />
@@ -212,7 +213,7 @@ function Register() {
           theme="light"
         />
       </main>
-    </>
+    </Layout>
   );
 }
 

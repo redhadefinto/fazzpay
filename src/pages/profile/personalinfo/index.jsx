@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import FooterHome from "@/components/FooterHome";
 import HeaderHome from "@/components/HeaderHome";
+import Layout from "@/components/Layout";
 import Loaders from "@/components/Loaders";
 import SideBar from "@/components/SideBar";
 import SideBarMobile from "@/components/SideBarMobile";
@@ -70,7 +71,7 @@ function PersonalInfo() {
       });
   }, [updateRes]);
   return (
-    <>
+    <Layout title={"Personal Info"}>
       {loading && (
         <div className="fixed w-full h-full bg-[rgba(0,0,0,.5)] z-[60]">
           <Loaders />
@@ -83,7 +84,7 @@ function PersonalInfo() {
         className={`bg-white-secondary h-max flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
         <SideBar setTopUp={setTopUp} />
         <section className="w-full h-full min-h-max lg:w-[70%] mt-4 lg:mt-0">
-          <div className="min-h-max bg-white-primary rounded-lg py-8">
+          <div className="min-h-max shadow-lg bg-white-primary rounded-lg py-8">
             <section className=" flex px-8 flex-col gap-6 mb-14">
               <div className=" text-dark font-bold text-xl">
                 <h3>Personal Information</h3>
@@ -129,7 +130,7 @@ function PersonalInfo() {
                   className={`utline-none text-2xl font-bold text-dark w-full ${
                     edit && "outline rounded-sm"
                   } ${input ? "" : "outline-red-600"}`}
-                  placeholder="Your First Name"
+                  placeholder="Your Last Name"
                   value={lastName}
                   onChange={handleLastname}
                 />
@@ -190,7 +191,7 @@ function PersonalInfo() {
         draggable={true}
         theme="light"
       />
-    </>
+    </Layout>
   );
 }
 
