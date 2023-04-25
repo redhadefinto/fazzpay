@@ -46,7 +46,6 @@ E Wallet Website FazzPayy to solve your banking problem
 - [![React][React.js]][React-url]
 - [![Tailwind][Tailwind-CSS]][Tailwind-url]
 - [![Redux][Redux]][Redux-url]
-- [![Chart][Chart]][Chart-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -130,5 +129,3 @@ Project Link: [https://github.com/redhadefinto/fazzpay](https://github.com/redha
 [Tailwind-url]: https://tailwindcss.com/
 [Redux]: https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white
 [Redux-url]: https://redux.js.org/
-[Chart]: https://avatars.githubusercontent.com/u/10342521?s=200&v=4
-[Chart-url]: https://www.chartjs.org/docs/latest/
