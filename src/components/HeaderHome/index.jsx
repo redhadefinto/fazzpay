@@ -28,17 +28,19 @@ function HeaderHome() {
             </button>
           </div>
           <div className="lg:w-[50%] w-full flex gap-6 items-center lg:justify-end relative">
-            <Image
-              src={
-                profileUser.image === null
-                  ? `${process.env.CLOUDINARY_LINK}Fazzpay/example_qx2pf0.png`
-                  : `${process.env.CLOUDINARY_LINK}${profileUser.image}`
-              }
-              alt="profile"
-              width={50}
-              height={50}
-              className="rounded-md object-cover"
-            />
+            <div className="w-[60px] h-[60px] flex">
+              <Image
+                src={
+                  profileUser.image === null
+                    ? `${process.env.CLOUDINARY_LINK}Fazzpay/example_qx2pf0.png`
+                    : `${process.env.CLOUDINARY_LINK}${profileUser.image}`
+                }
+                alt="profile"
+                width={60}
+                height={60}
+                className="rounded-md object-cover"
+              />
+            </div>
             <div className="flex flex-col gap-1 lg:mr-[20%] xl:mr-[17%]">
               <p className="font-semibold text-base text-white lg:text-black">
                 {profileUser.firstName} {profileUser.lastName || ""}

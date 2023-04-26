@@ -51,7 +51,7 @@ function Forgot() {
           <Loaders />
         </div>
       )}
-      <main className="lg:flex bg-white-primary">
+      <main className="lg:flex min-h-screen bg-white-primary">
         <section className="w-[50%] pl-12 py-12 hidden lg:auth-bg lg:block">
           <p className="text-3xl font-bold pl-12 text-white-primary">FazzPay</p>
           <Image src={branding} alt="branding" />
@@ -91,16 +91,16 @@ function Forgot() {
             <div className="mb-32 flex gap-2 relative">
               <i
                 className={`bi bi-envelope text-2xl absolute top-[10%] ${
-                  input ? "text-blue-primary" : "text-danger"
-                }`}></i>
+                  !email && "text-grey-secondary"
+                } ${input ? "text-blue-primary" : "text-danger"}`}></i>
               <input
                 type="text"
                 placeholder="Enter your e-mail"
                 value={email}
                 onChange={handleEmail}
-                className={`w-full border-b-2 border-solid border-grey-secondary p-2 pl-10 focus:outline-none lg:w-[90%] ${
-                  input ? "border-blue-primary" : "border-danger"
-                }`}
+                className={`w-full border-b-2 border-solid p-2 pl-10 focus:outline-none lg:w-[90%] ${
+                  !email && "border-grey-secondary"
+                } ${input ? "border-blue-primary" : "border-danger"}`}
               />
             </div>
             <div className="lg:w-[90%]">

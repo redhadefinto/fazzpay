@@ -27,8 +27,8 @@ function Register() {
   });
 
   const onChangeForm = (event) => {
+    setInput(true);
     setForm((form) => {
-      setInput(true);
       return {
         ...form,
         [event.target.name]: event.target.value,
@@ -76,7 +76,7 @@ function Register() {
           <Loaders />
         </div>
       )}
-      <main className="lg:flex bg-white-primary">
+      <main className="lg:flex min-h-screen bg-white-primary">
         <section className="w-[50%] pl-12 py-12 hidden lg:auth-bg lg:block">
           <p className="text-3xl font-bold pl-4 xl:pl-12 text-white-primary">
             FazzPay
@@ -118,65 +118,65 @@ function Register() {
             <div className="mb-8 flex gap-2 relative">
               <i
                 className={`bi bi-person text-2xl absolute top-[10%] ${
-                  input ? "text-blue-primary" : "text-danger"
-                }`}></i>
+                  form.firstName === "" && "text-grey-secondary"
+                } ${input ? "text-blue-primary" : "text-danger"}`}></i>
               <input
                 type="text"
                 placeholder="Enter your firstname"
                 name="firstName"
                 value={form.firstName}
                 onChange={onChangeForm}
-                className={`w-full border-b-2 border-solid border-grey-secondary p-2 pl-10 focus:outline-none lg:w-[90%] ${
-                  input ? "border-blue-primary" : "border-danger"
-                }`}
+                className={`w-full border-b-2 border-solid p-2 pl-10 focus:outline-none lg:w-[90%] ${
+                  form.firstName === "" && "border-grey-secondary"
+                } ${input ? "border-blue-primary" : "border-danger"}`}
               />
             </div>
             <div className="mb-8 flex gap-2 relative">
               <i
                 className={`bi bi-person text-2xl absolute top-[10%] ${
-                  input ? "text-blue-primary" : "text-danger"
-                }`}></i>
+                  form.lastName === "" && "text-grey-secondary"
+                } ${input ? "text-blue-primary" : "text-danger"}`}></i>
               <input
                 type="text"
                 placeholder="Enter your lastname"
                 name="lastName"
                 value={form.lastName}
                 onChange={onChangeForm}
-                className={`w-full border-b-2 border-solid border-grey-secondary p-2 pl-10 focus:outline-none lg:w-[90%] ${
-                  input ? "border-blue-primary" : "border-danger"
-                }`}
+                className={`w-full border-b-2 border-solid p-2 pl-10 focus:outline-none lg:w-[90%] ${
+                  form.lastName === "" && "border-grey-secondary"
+                } ${input ? "border-blue-primary" : "border-danger"}`}
               />
             </div>
             <div className="mb-8 flex gap-2 relative">
               <i
-                className={`bi bi-envelope-fill text-2xl absolute top-[10%] ${
-                  input ? "text-blue-primary" : "text-danger"
-                }`}></i>
+                className={`bi bi-envelope-fill text-2xl absolute top-[10%]  ${
+                  form.email === "" && "text-grey-secondary"
+                } ${input ? "text-blue-primary" : "text-danger"}`}></i>
               <input
                 type="text"
                 placeholder="Enter your e-mail"
                 name="email"
                 value={form.email}
                 onChange={onChangeForm}
-                className={`w-full border-b-2 border-solid border-grey-secondary p-2 pl-10 focus:outline-none lg:w-[90%] ${
-                  input ? "border-blue-primary" : "border-danger"
-                }`}
+                className={`w-full border-b-2 border-solid p-2 pl-10 focus:outline-none lg:w-[90%] ${
+                  form.email === "" && "border-grey-secondary"
+                } ${input ? "border-blue-primary" : "border-danger"}`}
               />
             </div>
             <div className="mb-6 flex gap-2 relative lg:mb-16">
               {/* password hidden */}
               <i
                 className={`bi bi-lock-fill absolute text-2xl top-[10%] ${
-                  input ? "text-blue-primary" : "text-danger"
-                }`}></i>
+                  form.password === "" && "text-grey-secondary"
+                } ${input ? "text-blue-primary" : "text-danger"}`}></i>
               <input
                 type={`${iconEye ? "text" : "password"}`}
                 name="password"
                 value={form.password}
                 onChange={onChangeForm}
-                className={`w-full border-b-2 border-solid border-grey-secondary p-2 pl-10 focus:outline-none lg:w-[90%] ${
-                  input ? "border-blue-primary" : "border-danger"
-                }`}
+                className={`w-full border-b-2 border-solid p-2 pl-10 focus:outline-none lg:w-[90%] ${
+                  form.password === "" && "border-grey-secondary"
+                } ${input ? "border-blue-primary" : "border-danger"}`}
                 placeholder="Enter your password"
               />
               <i

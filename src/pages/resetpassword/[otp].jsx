@@ -80,7 +80,7 @@ function ResetPassword() {
           <Loaders />
         </div>
       )}
-      <main className="lg:flex bg-white-primary">
+      <main className="lg:flex min-h-screen bg-white-primary">
         <section className="w-[50%] pl-12 py-12 hidden lg:auth-bg lg:block">
           <p className="text-3xl font-bold pl-4 xl:pl-12 text-white-primary">
             FazzPay

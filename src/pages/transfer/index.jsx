@@ -112,7 +112,11 @@ function Transfer() {
                     />
                   );
                 })}
-                <div className="w-full flex justify-center items-center gap-3 mt-8">
+                <p className="font-semibold block md:hidden text-center mt-8 mb-4">
+                  {paginations.totalPage === 0 ? "0" : paginations.page} /{" "}
+                  {paginations.totalPage}
+                </p>
+                <div className="w-full flex justify-center items-center gap-3 md:mt-8">
                   <button
                     className={`paginasi border-2 border-solid border-blue-primary text-blue-primary before:bg-blue-primary hover:text-white-primary ${
                       paginations.page === 1 &&
@@ -124,7 +128,7 @@ function Transfer() {
                     }}>
                     prev
                   </button>
-                  <p className="font-semibold">
+                  <p className="font-semibold hidden md:block">
                     {paginations.totalPage === 0 ? "0" : paginations.page} /{" "}
                     {paginations.totalPage}
                   </p>

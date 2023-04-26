@@ -16,6 +16,7 @@ function SideBarMobile({ setTopUp }) {
   const [modal, setModal] = useState(false);
   const [sidebar, setSideBar] = useState(false);
   const transferRegex = /^\/transfer(\/.*)?$/;
+  const profileRegex = /^\/profile(\/.*)?$/;
   const router = useRouter();
   const toggleSidebar = (e) => {
     e.preventDefault();
@@ -128,7 +129,7 @@ function SideBarMobile({ setTopUp }) {
         <Link
           href={"/profile"}
           className={`flex pl-[15%] gap-4 text-2xl hover:border-l-4 hover:border-solid hover:border-blue-primary hover:text-blue-primary hover:font-semibold ${
-            router.pathname === "/profile"
+            profileRegex.test(router.pathname)
               ? "border-l-4 border-solid border-blue-600 text-blue-primary font-semibold"
               : "text-grey-secondary font-medium"
           }`}>

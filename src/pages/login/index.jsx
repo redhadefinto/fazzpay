@@ -44,9 +44,15 @@ function Login() {
     dispatch(authAction.getAuthThunk({ email, password }, controller))
       .then((result) => {
         if (result.payload.message === "Request failed with status code 404")
-          return toast.error("Email / Account not registed"), setPassword("");
+          return (
+            toast.error("Email / Account not registed"),
+            setPassword(""),
+            setInput(false)
+          );
         if (result.payload.message === "Request failed with status code 400") {
-          return toast.error("Wrong password"), setPassword("");
+          return (
+            toast.error("Wrong password"), setPassword(""), setInput(false)
+          );
         }
         if (result.payload) {
           dispatch(
@@ -82,7 +88,7 @@ function Login() {
           <Loaders />
         </div>
       )}
-      <main className="lg:flex bg-white-primary">
+      <main className="lg:flex min-h-screen bg-white-primary">
         <section className="w-[50%] pl-12 py-12 hidden lg:auth-bg lg:block">
           <p className="text-3xl font-bold pl-12 text-white-primary">FazzPay</p>
           <Image src={branding} alt="branding" />
@@ -122,31 +128,31 @@ function Login() {
             <div className="mb-8 flex gap-2 relative">
               <i
                 className={`bi bi-envelope text-2xl absolute top-[10%] ${
-                  input ? "text-blue-primary" : "text-danger"
-                }`}></i>
+                  !email && "text-grey-secondary"
+                } ${input ? "text-blue-primary" : "text-danger"}`}></i>
               <input
                 type="text"
                 placeholder="Enter your e-mail"
                 value={email}
                 onChange={handleEmail}
-                className={`w-full border-b-2 border-solid border-grey-secondary p-2 pl-10 focus:outline-none lg:w-[90%] ${
-                  input ? "border-blue-primary" : "border-danger"
-                }`}
+                className={`w-full border-b-2 border-solid p-2 pl-10 focus:outline-none lg:w-[90%] ${
+                  !email && "border-grey-secondary"
+                } ${input ? "border-blue-primary" : "border-danger"}`}
               />
             </div>
             <div className="mb-6 flex gap-2 relative lg:mb-8">
               {/* password hidden */}
               <i
-                className={`bi bi-lock-fill absolute text-2xl top-[10%] ${
-                  input ? "text-blue-primary" : "text-danger"
-                }`}></i>
+                className={`bi bi-lock-fill absolute text-2xl top-[10%]  ${
+                  !password && "text-grey-secondary"
+                } ${input ? "text-blue-primary" : "text-danger"}`}></i>
               <input
                 type={`${iconEye ? "text" : "password"}`}
                 value={password}
                 onChange={handlePassword}
-                className={`w-full border-b-2 border-solid border-grey-secondary p-2 pl-10 focus:outline-none lg:w-[90%] ${
-                  input ? "border-blue-primary" : "border-danger"
-                }`}
+                className={`w-full border-b-2 border-solid p-2 pl-10 focus:outline-none lg:w-[90%] ${
+                  password === "" || (!password && "border-grey-secondary")
+                } ${input ? "border-blue-primary" : "border-danger"}`}
                 placeholder="Enter your password"
               />
               <i

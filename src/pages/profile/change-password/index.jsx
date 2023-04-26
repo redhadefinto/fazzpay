@@ -35,25 +35,6 @@ function ChangePassword() {
   const toggleIcon3 = () => {
     iconEye3 ? setIconEye3(false) : setIconEye3(true);
   };
-  // const inputImage = () => {
-  //   inputFileRef.current.click();
-  // };
-
-  const toInfo = () => {
-    router.push("/profile/detail");
-  };
-
-  const handleEdit = () => {
-    setEdit(!edit);
-  };
-
-  const toChangePwd = () => {
-    router.push("/profile/edit-password");
-  };
-
-  const toChangePin = () => {
-    router.push("/profile/edit-pin");
-  };
   const [form, setForm] = useState({
     oldPassword: "",
     newPassword: "",
@@ -71,6 +52,7 @@ function ChangePassword() {
   const handleSave = (e) => {
     e.preventDefault();
     setLoading(true);
+    setInput(true);
     updatePassword(
       {
         oldPassword: form.oldPassword,
@@ -131,17 +113,18 @@ function ChangePassword() {
                 onSubmit={handleSave}>
                 <div className="mb-6 flex gap-2 relative ">
                   <i
-                    className={`bi bi-lock-fill absolute text-[#A9A9A999] text-2xl top-[10%] ${
-                      input ? "text-blue-primary" : "text-red-600"
-                    }`}></i>
+                    className={`bi bi-lock-fill absolute text-2xl top-[10%] ${
+                      form.oldPassword === "" && "text-grey-secondary"
+                    } ${input ? "text-blue-primary" : "text-danger"}`}></i>
                   <input
                     name="oldPassword"
                     id="oldPassword"
                     onChange={onChangeForm}
+                    value={form.oldPassword}
                     type={`${iconEye1 ? "text" : "password"}`}
-                    className={`w-full border-b-2 border-solid border-grey-secondary  p-2 pl-10 focus:outline-none lg:w-[90%] ${
-                      input ? "border-blue-600" : "border-red-600"
-                    }`}
+                    className={`w-full border-b-2 border-solid border-grey-secondary p-2 pl-10 focus:outline-none lg:w-[90%] ${
+                      form.oldPassword === "" && "border-grey-secondary"
+                    } ${input ? "border-blue-primary" : "border-danger"}`}
                     placeholder="Current password"
                   />
                   <i
@@ -152,17 +135,18 @@ function ChangePassword() {
                 </div>
                 <div className="mb-6 flex gap-2 relative ">
                   <i
-                    className={`bi bi-lock-fill text-[#A9A9A999]  absolute text-2xl top-[10%] ${
-                      input ? "text-blue-primary" : "text-red-600"
-                    }`}></i>
+                    className={`bi bi-lock-fill absolute text-2xl top-[10%] ${
+                      form.newPassword === "" && "text-grey-secondary"
+                    } ${input ? "text-blue-primary" : "text-danger"}`}></i>
                   <input
                     name="newPassword"
                     id="newPassword"
                     onChange={onChangeForm}
+                    value={form.newPassword}
                     type={`${iconEye2 ? "text" : "password"}`}
-                    className={`w-full border-b-2 border-solid border-grey-secondary  p-2 pl-10 focus:outline-none lg:w-[90%] ${
-                      input ? "border-blue-600" : "border-red-600"
-                    }`}
+                    className={`w-full border-b-2 border-solid  p-2 pl-10 focus:outline-none lg:w-[90%] ${
+                      form.newPassword === "" && "border-grey-secondary"
+                    } ${input ? "border-blue-primary" : "border-danger"}`}
                     placeholder="New password"
                   />
                   <i
@@ -173,17 +157,18 @@ function ChangePassword() {
                 </div>
                 <div className="mb-6 flex gap-2 relative ">
                   <i
-                    className={`bi bi-lock-fill text-[#A9A9A999] absolute text-2xl top-[10%] ${
-                      input ? "text-blue-primary" : "text-red-600"
-                    }`}></i>
+                    className={`bi bi-lock-fill absolute text-2xl top-[10%] ${
+                      form.confirmPassword === "" && "text-grey-secondary"
+                    } ${input ? "text-blue-primary" : "text-danger"}`}></i>
                   <input
                     name="confirmPassword"
                     id="confirmPassword"
                     onChange={onChangeForm}
+                    value={form.confirmPassword}
                     type={`${iconEye3 ? "text" : "password"}`}
-                    className={`w-full border-b-2 border-solid border-grey-secondary p-2 pl-10 focus:outline-none lg:w-[90%] ${
-                      input ? "border-blue-600" : "border-red-600"
-                    }`}
+                    className={`w-full border-b-2 border-solid p-2 pl-10 focus:outline-none lg:w-[90%] ${
+                      form.confirmPassword === "" && "border-grey-secondary"
+                    } ${input ? "border-blue-primary" : "border-danger"}`}
                     placeholder="Confirm new password"
                   />
                   <i

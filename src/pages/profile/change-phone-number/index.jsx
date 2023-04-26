@@ -25,7 +25,7 @@ function ChangePhoneNumber() {
   const [loading, setLoading] = useState(false);
   const id = useSelector((state) => state.auth.data.data.id);
   const [form, setForm] = useState({
-    phoneNumber: "",
+    phoneNumber: profileUser.noTelp,
   });
   const onChangeForm = (e) => {
     setForm((form) => {
@@ -96,7 +96,11 @@ function ChangePhoneNumber() {
                 onSubmit={handleSave}>
                 <div className="mb-8 flex gap-2 relative w-full md:w-[60%] pl-4 text-greyFont">
                   <i
-                    className={`bi bi-telephone-plus text-2xl absolute top-[10%] `}></i>
+                    className={`bi bi-telephone-plus text-2xl absolute top-[10%] ${
+                      !form.phoneNumber
+                        ? "text-grey-secondary"
+                        : "text-blue-600"
+                    }`}></i>
 
                   <input
                     type="text"
@@ -105,11 +109,15 @@ function ChangePhoneNumber() {
                     value={form.phoneNumber}
                     onChange={onChangeForm}
                     placeholder="Enter your phone number"
-                    className={`w-full border-b-2 border-solid  p-2 pl-10 focus:outline-none lg:w-[90%] text-xl `}
+                    className={`w-full border-b-2 border-solid  p-2 pl-10 focus:outline-none lg:w-[90%] text-xl ${
+                      !form.phoneNumber
+                        ? "border-grey-secondary"
+                        : "border-blue-600"
+                    }`}
                   />
                 </div>
-                <div className=" flex mt-9 w-full justify-center items-center ">
-                  <button className=" bg-blue-primary p-5 text-xl text-white font-bold rounded-lg w-[60%] justify-center items-center">
+                <div className=" flex mt-9 w-full justify-center items-center">
+                  <button className=" paginasi border-2 border-solid border-blue-primary text-blue-primary before:bg-blue-primary hover:text-white-primary w-[60%] text-xl">
                     Save Changes
                   </button>
                 </div>

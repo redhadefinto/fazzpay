@@ -75,7 +75,7 @@ function History() {
       <main
         className={`bg-white-secondary h-max flex px-[8%] py-8 lg:py-8 lg:px-[5%] xl:px-[8%]`}>
         <SideBar setTopUp={setTopUp} />
-        <section className="w-full min-h-screen lg:w-[70%] mt-4 shadow-lg lg:mt-0 overflow-scroll overflow-x-hidden">
+        <section className="w-full min-h-screen lg:w-[70%] mt-4 shadow-lg lg:mt-0">
           <div className="min-h-screen shadow-lg bg-white-primary rounded-lg py-8 px-8">
             {loading ? (
               <div className="w-full h-full relative pt-[70%]">
@@ -134,6 +134,9 @@ function History() {
                     />
                   ))}
                 </section>
+                <p className=" text-lg md:hidden text-center mt-8">
+                  {metaPage} / {totalPage}
+                </p>
                 <section className="flex gap-3 justify-center items-center mt-8">
                   <button
                     onClick={() => handlePagination("prev")}
@@ -141,7 +144,7 @@ function History() {
                     className={`paginasi border-2 border-solid border-blue-primary text-blue-primary before:bg-blue-primary hover:text-white-primary disabled:border-none disabled:bg-grey-thirty disabled:hover:bg-grey-thirty disabled:text-grey-secondary disabled:before:bg-grey-thirty`}>
                     Prev
                   </button>
-                  <p className=" text-lg">
+                  <p className=" text-lg hidden md:block">
                     {metaPage} / {totalPage}
                   </p>
                   <button

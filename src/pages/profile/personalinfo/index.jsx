@@ -44,7 +44,8 @@ function PersonalInfo() {
   };
   const handleSave = (e) => {
     e.preventDefault();
-    if (!firstName) return toast.error("Input must be field"), setInput(false);
+    if (!firstName || !lastName)
+      return toast.error("Input must be field"), setInput(false);
     if (firstName == profiles.firstName && lastName == profiles.lastName)
       return toast.error("the data has not changed"), setInput(false);
     setLoading(true);
@@ -105,12 +106,13 @@ function PersonalInfo() {
                   </label>
                   <input
                     type="text"
-                    className={`utline-none text-2xl font-bold text-dark w-full ${
+                    className={`utline-none text-2xl disabled:bg-white font-bold text-dark w-full ${
                       edit && "outline rounded-sm"
                     }, ${input ? "" : "outline-red-600"}`}
                     placeholder="Your First Name"
                     value={firstName}
                     onChange={handleFirstname}
+                    disabled={!edit}
                   />
                 </div>
                 <div
@@ -127,12 +129,13 @@ function PersonalInfo() {
                 </label>
                 <input
                   type="text"
-                  className={`utline-none text-2xl font-bold text-dark w-full ${
+                  className={`utline-none text-2xl disabled:bg-white font-bold text-dark w-full ${
                     edit && "outline rounded-sm"
                   } ${input ? "" : "outline-red-600"}`}
                   placeholder="Your Last Name"
                   value={lastName}
                   onChange={handleLastname}
+                  disabled={!edit}
                 />
               </div>
               <div className=" shadow-sm flex flex-col w-full p-4 gap-3 rounded-[1.3rem]">
