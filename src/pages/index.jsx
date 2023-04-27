@@ -22,7 +22,7 @@ import Link from "next/link";
 import Layout from "@/components/Layout";
 import Comment from "@/components/Comment";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const data = [
     {
       fullName: "Sherina Chaw",
