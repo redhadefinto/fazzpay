@@ -145,7 +145,7 @@ function PersonalInfo() {
                 <input
                   type="text"
                   className={`outline-none text-2xl font-bold text-greyFont`}
-                  placeholder="Your First Name"
+                  placeholder="Your Email"
                   value={email}
                 />
               </div>
@@ -158,7 +158,7 @@ function PersonalInfo() {
                   <input
                     type="text"
                     className=" outline-none text-2xl font-bold text-dark w-full"
-                    placeholder="Your First Name"
+                    placeholder="Your Phone Number"
                     value={phone}
                   />
                 </div>

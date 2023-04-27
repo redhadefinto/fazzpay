@@ -28,7 +28,7 @@ function Forgot() {
     setInput(true);
     setLoading(true);
     forgot(
-      { email, linkDirect: "http://localhost:3000/resetpassword" },
+      { email, linkDirect: "https://fazzpay-ecru.vercel.app/resetpassword" },
       controller
     )
       .then((res) => {
