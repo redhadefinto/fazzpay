@@ -20,8 +20,35 @@ import pp3 from "../assets/vector/3.png";
 import React from "react";
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import Comment from "@/components/Comment";
 
-function LandingPage() {
+export async function getServerSideProps() {
+  const data = [
+    {
+      fullName: "Sherina Chaw",
+      image: "/images/1.png",
+      comment:
+        "“I use this app since 2 years ago and this is the best app that I’ve ever use in my entire life”",
+    },
+    {
+      fullName: "Jessica Mera",
+      image: "/images/2.svg",
+      comment:
+        "“I use Zwallet to manage all financial needs. It’s super easy to use and it’s 100% free app”",
+    },
+    {
+      fullName: "Robert Chandler",
+      image: "/images/3.png",
+      comment:
+        "“Since I’m using this app, I’m not going to move to another similar app. Thank you Zwallet!”",
+    },
+  ];
+  return {
+    props: { data },
+  };
+}
+
+function LandingPage({ data }) {
   return (
     <Layout title={"Landing Page"}>
       <main className=" flex flex-col ">
@@ -228,62 +255,16 @@ function LandingPage() {
           </section>
 
           <section className=" mt-16 flex overflow-scroll  overflow-y-hidden lg:overflow-auto gap-10 xl:gap-6 items-center  xl:justify-around py-16 ">
-            <div className=" flex">
-              <div className=" flex flex-col gap-[2.2rem] w-[20.9rem] h-[19.5rem] lg:w-[22.938rem] lg:h-[21.5rem] rounded-[1.3rem]  text-center justify-center items-centers px-8 py-11 bg-white  drop-shadow-lg ">
-                <div className=" flex flex-col gap-[2.2rem] justify-center items-center ">
-                  <div className=" w-[3.8rem]  h-[3.8rem]  flex justify-center items-center">
-                    <Image src={pp} alt="call" />
-                  </div>
-                  <div className=" text-lg lg:text-2xl flex flex-wrap text-grey-primary font-bold">
-                    <p>Sherina Chaw</p>
-                  </div>
-                </div>
-                <div className=" text-base lg:text-lg leading-8 flex flex-wrap text-grey-primary">
-                  <p>
-                    “I use this app since 2 years ago and this is the best app
-                    that I’ve ever use in my entire life”
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className=" flex">
-              <div className=" flex flex-col gap-[2.2rem] w-[20.9rem] h-[19.5rem] lg:w-[22.938rem] lg:h-[21.5rem] rounded-[1.3rem]  text-center justify-center items-centers px-8 py-11 bg-white  drop-shadow-lg ">
-                <div className=" flex flex-col gap-[2.2rem] justify-center items-center ">
-                  <div className=" w-[3.8rem]  h-[3.8rem]  flex justify-center items-center">
-                    <Image src={pp2} alt="call" />
-                  </div>
-                  <div className=" text-lg lg:text-2xl flex flex-wrap text-grey-primary font-bold">
-                    <p>Jessica Mera</p>
-                  </div>
-                </div>
-                <div className=" text-base lg:text-lg leading-8 flex flex-wrap text-grey-primary">
-                  <p>
-                    “I use Zwallet to manage all financial needs. It’s super
-                    easy to use and it’s 100% free app”
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className=" flex">
-              <div className=" flex flex-col gap-[2.2rem] w-[20.9rem] h-[19.5rem] lg:w-[22.938rem] lg:h-[21.5rem] rounded-[1.3rem]  text-center justify-center items-centers px-8 py-11 bg-white  drop-shadow-lg ">
-                <div className=" flex flex-col gap-[2.2rem] justify-center items-center ">
-                  <div className=" w-[3.8rem]  h-[3.8rem]  flex justify-center items-center">
-                    <Image src={pp3} alt="call" />
-                  </div>
-                  <div className=" text-lg lg:text-2xl flex flex-wrap text-grey-primary font-bold">
-                    <p>Robert Chandler</p>
-                  </div>
-                </div>
-                <div className=" text-base lg:text-lg leading-8 flex flex-wrap text-grey-primary">
-                  <p>
-                    “Since I’m using this app, I’m not going to move to another
-                    similar app. Thank you Zwallet!”
-                  </p>
-                </div>
-              </div>
-            </div>
+            {data.map((item, i) => {
+              return (
+                <Comment
+                  key={i}
+                  pp={item.image}
+                  fullname={item.fullName}
+                  desc={item.comment}
+                />
+              );
+            })}
           </section>
         </section>
         <section className=" flex flex-col bg-blue-primary py-20 w-full px-[10%] lg:px-[8%] xl:px-[10%]">
