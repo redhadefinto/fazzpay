@@ -1,6 +1,7 @@
 ## Readme Top
 
 <div align="center">
+<img width="50" src="./public/wallet.png" alt="icon">
 <h3 align="center">Fazzpay Project</h3>
 
   <p align="center">
@@ -114,11 +115,31 @@ Project Link: [https://github.com/redhadefinto/fazzpay](https://github.com/redha
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LICENSE -->
+## Documentation
 
-## License
+<img width="500" src="./public/landing-page.png" alt="Landing page">
+<img width="500" src="./public/login-page.png" alt="Landing page">
+<img width="500" src="./public/profile-page.png" alt="Landing page">
+<img width="500" src="./public/home-page.png" alt="Landing page">
+<img width="500" src="./public/transaction-succes-page.png" alt="Landing page">
 
-© [Redha Definto](https://github.com/redhadefinto)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Contributor -->
+
+## Contributor
+
+  <table>
+    <tr>
+      <td >
+        <a href="https://github.com/redhadefinto">
+          <img width="100" src="https://avatars.githubusercontent.com/u/66767762?s=400&u=00ad08bd394a1ba0fe65d9b61cbef4245df96fb4&v=4" alt=""><br/>
+          <center><sub><b>Redha Definto </b></sub></center>
+        </a>
+        </td>
+    </tr>
+  </table>
+<h1 align="center"> THANK FOR YOUR ATTENTION </h1>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
