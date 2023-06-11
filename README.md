@@ -38,9 +38,8 @@
 ## About The Project
 
 <!-- ![Product Name Screen Shot][product-screenshot] -->
-<img width="900" src="./public/index.png" alt="display-documentation">
 
-E Wallet Website FazzPayy to solve your banking problem
+FazzPay is a cutting-edge digital wallet application that revolutionizes the way people make payments, transfers, and manage their finances. Designed with user convenience and security in mind, FazzPay offers a seamless and hassle-free experience
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -99,10 +98,13 @@ E Wallet Website FazzPayy to solve your banking problem
 
 Redha Definto - redhadefinto28@gmail.com
 
-Project Link: [https://github.com/redhadefinto/fazzpay](https://github.com/redhadefinto/fazzpay)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Deployment
+
+Project Link: [(https://fazzpay-ecru.vercel.app/)](https://fazzpay-ecru.vercel.app/))
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- ACKNOWLEDGMENTS -->
 
 ## Acknowledgments
