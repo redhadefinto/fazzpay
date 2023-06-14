@@ -107,10 +107,14 @@ Project Link: [(https://fazzpay-ecru.vercel.app/)](https://fazzpay-ecru.vercel.a
 
 ## Documentation
 
-<img width="400" src="./public/landing-page.png" alt="Landing page">
-<img width="400" src="./public/login-page.png" alt="Landing page">
-<img width="400" src="./public/profile-page.png" alt="Landing page">
-<img width="400" src="./public/home-page.png" alt="Landing page">
+<div>
+  <img width="400" src="./public/landing-page.png" alt="Landing page">
+  <img width="400" src="./public/login-page.png" alt="Landing page">
+</div>
+<div>
+  <img width="400" src="./public/profile-page.png" alt="Landing page">
+  <img width="400" src="./public/home-page.png" alt="Landing page">
+</div>
 <img width="400" src="./public/transaction-succes-page.png" alt="Landing page">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
