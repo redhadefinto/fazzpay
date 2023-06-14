@@ -46,7 +46,6 @@ FazzPay is a cutting-edge digital wallet application that revolutionizes the way
 ### Built With
 
 - [![Next][Next.js]][Next-url]
-- [![React][React.js]][React-url]
 - [![Tailwind][Tailwind-CSS]][Tailwind-url]
 - [![Redux][Redux]][Redux-url]
 
@@ -80,7 +79,7 @@ FazzPay is a cutting-edge digital wallet application that revolutionizes the way
 ## Usage
 
 - Register Account and Check your email for verification (Problem with register)
-- For verif just see message when open the link to look is success or not
+- For verify just see message when open the link to look is success or not
 - Edit your profile (Image, Phone Number)
 - Top up
   - Select amount you want to top up
@@ -105,25 +104,14 @@ Redha Definto - redhadefinto28@gmail.com
 Project Link: [(https://fazzpay-ecru.vercel.app/)](https://fazzpay-ecru.vercel.app/))
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-<!-- ACKNOWLEDGMENTS -->
-
-## Acknowledgments
-
-- [NextJs](https://nextjs.org/)
-- [React](https://reactjs.org/)
-- [Tailwind](https://tailwindcss.com/)
-- [Redux](https://redux.js.org/)
-- [chart](https://www.chartjs.org/docs/latest/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Documentation
 
-<img width="500" src="./public/landing-page.png" alt="Landing page">
-<img width="500" src="./public/login-page.png" alt="Landing page">
-<img width="500" src="./public/profile-page.png" alt="Landing page">
-<img width="500" src="./public/home-page.png" alt="Landing page">
-<img width="500" src="./public/transaction-succes-page.png" alt="Landing page">
+<img width="400" src="./public/landing-page.png" alt="Landing page">
+<img width="400" src="./public/login-page.png" alt="Landing page">
+<img width="400" src="./public/profile-page.png" alt="Landing page">
+<img width="400" src="./public/home-page.png" alt="Landing page">
+<img width="400" src="./public/transaction-succes-page.png" alt="Landing page">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
