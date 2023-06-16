@@ -93,7 +93,7 @@ FazzPay is a cutting-edge digital wallet application that revolutionizes the way
 
 ## Deployment
 
-Project Link: [click)](https://fazzpay-ecru.vercel.app/))
+Project Link: [here](https://fazzpay-ecru.vercel.app/))
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
