@@ -91,17 +91,9 @@ FazzPay is a cutting-edge digital wallet application that revolutionizes the way
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- CONTACT -->
-
-## Contact
-
-Redha Definto - redhadefinto28@gmail.com
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ## Deployment
 
-Project Link: [(https://fazzpay-ecru.vercel.app/)](https://fazzpay-ecru.vercel.app/))
+Project Link: [click)](https://fazzpay-ecru.vercel.app/))
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -116,6 +108,14 @@ Project Link: [(https://fazzpay-ecru.vercel.app/)](https://fazzpay-ecru.vercel.a
   <img width="400" src="./public/home-page.png" alt="Landing page">
 </div>
 <img width="400" src="./public/transaction-succes-page.png" alt="Landing page">
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTACT -->
+
+## Contact
+
+Redha Definto - redhadefinto28@gmail.com
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
